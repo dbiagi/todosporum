@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{%block content %} 
+    <section>
+        <div class="center">
+            <h2 class="am">Faça seu cadastro</h2>
+            
+            <!-- MENSAGEM DE OK -->
+
+            <!-- MENSAGEM DE ERRO -->
+            
+            <form id="cadastro" class="login" method="post" action="registra.php">
+                <input type="text" name="email" id="email" placeholder="email" required>
+                <input type="text" name="name" id="usuario" placeholder="usuário" required>
+                <input type="password" name="pass1" id="senha" placeholder="senha" required>
+                <input type="password" name="pass2" id="confirmacao" placeholder="confirme a senha" required>
+                <button type="submit" class="btn bg_az">Cadastrar</button>
+            </form>
+
+        </div>
+    </section>
+{% endblock %}

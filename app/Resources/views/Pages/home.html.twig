@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="banner-home">
+
+        <img src="{{ asset('/img/ilustra.png') }}">
+
+    </section>
+
+    <section class="container center">
+
+        <h2 class="az">Como funciona?</h2>
+
+        <div class="videoWrapper">
+            <iframe src="https://www.youtube.com/embed/pCUqSbArkvc" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+    </section>
+
+    <section class="container center">
+
+        <h2 class="rs">Veja o que já foi feito aqui</h2>
+
+        <ul id="galeria" class="clear">
+            {% for i in range(1, 12) %}
+                <li>
+                    <a class="videos" data-fancybox-type="iframe" href="concluidos.html">
+                        <img src="/img/video.jpg" alt="">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="btn bg_az" href="{{ path('tcc_galeria') }}">VER GALERIA COMPLETA</a>
+
+    </section>
+{% endblock %}

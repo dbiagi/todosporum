@@ -1,0 +1,50 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% spaceless %}
+        <section class="container">
+            <div class="row col-sm-offset-3 title">
+                <h2 class="am">Faça seu cadastro</h2>
+            </div>
+
+            {{ form_start(form, { 'attr': { 'class': 'form-horizontal', 'novalidate': 'novalidate' } }) }}
+            
+            <div>{{ form_errors(form) }}</div>
+            
+            <div class="form-group">
+                <label for="{{form.username.vars.id}}" class="control-label col-sm-3 col-lg-3 col-md-3 col-xs-3">Nome</label>
+                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                    {{ form_widget(form.username, {'attr': { 'class': 'form-control' } }) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.vars.id }}" class="control-label col-sm-3 col-lg-3 col-md-3 col-xs-3">Email</label>
+                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                    {{ form_widget(form.email, {'attr': { 'class': 'form-control' } }) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.plainPassword.first.vars.id }}" class="control-label col-sm-3 col-lg-3 col-md-3 col-xs-3">Senha</label>
+                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                    {{ form_widget(form.plainPassword.first, {'attr': { 'class': 'form-control' } }) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.plainPassword.second.vars.id }}" class="control-label col-sm-3 col-lg-3 col-md-3 col-xs-3">Confirme sua senha</label>
+                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                    {{ form_widget(form.plainPassword.second, {'attr': { 'class': 'form-control' } }) }}
+                </div>                
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                    <button type="submit" class="btn bg_rs">Cadastrar</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </section>
+    {% endspaceless%}
+{% endblock %}

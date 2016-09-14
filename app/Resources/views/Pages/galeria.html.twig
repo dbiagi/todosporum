@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="container">
+
+        <h2 class="am">Galeria
+
+            <div id="busca">
+
+                <form action="">
+
+                    <input type="text">
+
+                    <a class="fa fa-search btn-mini bg_az"></a>
+
+                </form>
+
+            </div>
+        </h2>
+
+        <ul id="galeria" class="clear">
+            {% for i in range(1, 12) %}
+                <li>
+                    <a class="videos" data-fancybox-type="iframe" href="concluidos.html">
+                        <img src="{{ asset('img/video.jpg') }}" alt="">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <ul class="paginacao">
+            <li><a href=""><<</a></li>
+            <li><a href=""><</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+            <li><a href="">></a></li>
+            <li><a href="">>></a></li>
+        </ul>
+
+    </section>
+{% endblock %}
