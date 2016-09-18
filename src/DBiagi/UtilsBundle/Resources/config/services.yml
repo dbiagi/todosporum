@@ -1,0 +1,6 @@
+services:
+    faker:
+        class:   Faker\Generator
+        factory: [DBiagi\MainBundle\Service\Faker\FakerFactory, createFaker]
+        arguments: ['%locale%']
+        

@@ -1,9 +1,11 @@
-parameters:
-#    d_biagi_main.example.class: DBiagi\MainBundle\Example
-
 services:
-    faker:
-        class:   Faker\Generator
-        factory: [DBiagi\MainBundle\Service\Faker\FakerFactory, createFaker]
-        arguments: ['%locale%']
-        
+          
+    app.form.registration:
+        class: DBiagi\MainBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+            
+    main.event.user_registration:
+        class: DBiagi\MainBundle\EventListener\UserRegistrationListener
+        tags:
+            - { name: kernel.event_subscriber }

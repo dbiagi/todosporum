@@ -1,6 +1,6 @@
 <?php
 
-namespace DBiagi\MainBundle\Service\Faker;
+namespace DBiagi\UtilsBundle\Service\Faker;
 
 use Faker\Factory;
 

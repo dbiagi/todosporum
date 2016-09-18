@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             
             // My Bundles
             new DBiagi\MainBundle\DBiagiMainBundle(),
+            new DBiagi\UtilsBundle\DBiagiUtilsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

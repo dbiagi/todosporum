@@ -1,7 +1,13 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    {% spaceless %}
+
+    <section class="container">
+        {{ form(form) }}
+    </section>
+
+
+    {# {% spaceless %}
         <section class="container">
             <div class="row col-sm-offset-3 title">
                 <h2 class="am">Faça seu cadastro</h2>
@@ -46,5 +52,5 @@
             </div>
             {{ form_end(form) }}
         </section>
-    {% endspaceless%}
+    {% endspaceless%} #}
 {% endblock %}

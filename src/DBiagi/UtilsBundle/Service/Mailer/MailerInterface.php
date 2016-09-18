@@ -1,6 +1,6 @@
 <?php
 
-namespace DBiagi\MainBundle\Service\Mailer;
+namespace DBiagi\UtilsBundle\Service\Mailer;
 
 /**
  * Description of MailerInterface
