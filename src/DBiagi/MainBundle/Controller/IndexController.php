@@ -17,6 +17,11 @@ class IndexController extends Controller {
     public function contactAction(Request $request) {
                
         if ('POST' === $request->getMethod()) {
+            
+            if(!$request->get('from') || !$request->get('name') || !$request->get('message')){
+                $request->getSession()->getFlashBag()->add('error', 'contact.missing_fields');
+            }            
+            
             $message = \Swift_Message::newInstance()
                 ->setSubject('[Todos Por Um] Mensagem do ' . $request->get('name'))
                 ->setFrom($request->get('from'), $request->get('name'))
@@ -28,9 +33,9 @@ class IndexController extends Controller {
             $result = $this->get('mailer')->send($message);
             
             if($result){
-                $request->getSession()->getFlashBag()->add('success', 'Enviamos sua mensagem, leremos assim que der. Obrigado.');
+                $request->getSession()->getFlashBag()->add('success', 'contact.success');
             } else {
-                $request->getSession()->getFlashBag()->add('success', 'Ops, deu algo errado. Por favor, tente novamente mais tarde.');
+                $request->getSession()->getFlashBag()->add('success', 'contact.error');
                 $this->get('logger')->error('Erro ao enviar email.');
             }
             
@@ -38,6 +43,14 @@ class IndexController extends Controller {
         }
         
         return $this->render('Pages/contato.html.twig');
+    }
+    
+    
+    /**
+     * @Route("/galeria", name="animation_list")
+     */
+    public function listAction() {
+        return $this->render('Animation/list.html.twig');
     }
 
 }

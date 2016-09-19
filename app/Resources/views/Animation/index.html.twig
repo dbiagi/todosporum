@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Animation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for animation in animations %}
+            <tr>
+                <td><a href="{{ path('animation_show', { 'id': animation.id }) }}">{{ animation.id }}</a></td>
+                <td>{{ animation.title }}</td>
+                <td>{% if animation.createdAt %}{{ animation.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if animation.updatedAt %}{{ animation.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('animation_show', { 'id': animation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('animation_edit', { 'id': animation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('animation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

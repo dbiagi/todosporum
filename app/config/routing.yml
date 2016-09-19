@@ -1,3 +1,7 @@
+d_biagi_main_animation:
+    resource: "@DBiagiMainBundle/Controller/AnimationController.php"
+    type:     annotation
+
 # Imports MainBundle routes
 dbiagi_main_bundle:
     resource: "@DBiagiMainBundle/Resources/config/routing.yml"
