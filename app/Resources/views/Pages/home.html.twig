@@ -21,16 +21,10 @@
 
         <h2 class="rs">Veja o que já foi feito aqui</h2>
 
-        <ul id="galeria" class="clear">
-            {% for i in range(1, 12) %}
-                <li>
-                    <a class="videos" data-fancybox-type="iframe" href="concluidos.html">
-                        <img src="/img/video.jpg" alt="">
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-        <a class="btn bg_az" href="{{ path('tcc_galeria') }}">VER GALERIA COMPLETA</a>
+        {% block animation_list %} 
+            {% include 'Widgets/animation_list.html.twig' %}
+        {% endblock %}
+        <a class="btn bg_az" href="{{ path('animation_list') }}">VER GALERIA COMPLETA</a>
 
     </section>
 {% endblock %}

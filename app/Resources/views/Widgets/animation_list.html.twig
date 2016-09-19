@@ -1,0 +1,11 @@
+{% block animation_list_content %} 
+    <ul id="galeria" class="clear">
+        {% for i in range(1, 12) %}
+            <li>
+                <a class="videos" data-fancybox-type="iframe" href="concluidos.html">
+                    <img src="{{ asset('img/video.jpg') }}" alt="">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

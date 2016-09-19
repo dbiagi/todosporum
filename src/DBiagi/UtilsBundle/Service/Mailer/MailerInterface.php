@@ -7,7 +7,7 @@ namespace DBiagi\UtilsBundle\Service\Mailer;
  *
  * @author diego
  */
-class MailerInterface {
+interface MailerInterface {
     /**
      * Send the message
      * @return bool
@@ -39,8 +39,7 @@ class MailerInterface {
     public function setBody($body);
     
     /**
-     * Add attachment
-     * @return $this
+     * @param array $files Array of file absolute file paths to attach.
      */
-    public function addAttachment();
+    public function addAttachments(array $files);
 }

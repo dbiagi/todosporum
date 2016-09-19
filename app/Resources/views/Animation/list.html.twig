@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="container">
+        <h2 class="am">Galeria
+            <div id="busca">
+                <form action="">
+                    <input type="text">
+                    <a class="fa fa-search btn-mini bg_az"></a>
+                </form>
+            </div>
+        </h2>
+        
+        {% block animation_list %} 
+            {% include 'Widgets/animation_list.html.twig' %}
+        {% endblock %}
+        
+        {% block pagination %} 
+            {% include 'includes/pagination.html.twig' %}
+        {% endblock %}
+    </section>
+{% endblock %}

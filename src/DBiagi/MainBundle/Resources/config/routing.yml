@@ -1,51 +1,43 @@
-tcc_home:
+main_home:
     path:     /
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/home.html.twig
 
-tcc_projeto:
+main_projeto:
     path: /projeto
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/projeto.html.twig
 
-tcc_galeria:
-    path: /galeria
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template: Pages/galeria.html.twig
-
-tcc_registrar:
+main_registrar:
     path: /registrar
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/registro.html.twig
 
-tcc_contato:
-    path: /contato
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template: Pages/contato.html.twig
-
-tcc_termo:
+main_termo:
     path: /termo
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/termo.html.twig
 
-tcc_projeto:
+main_projeto:
     path: /projeto
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/projeto.html.twig
 
-tcc_politica:
+main_politica:
     path: /politica-de-privacidade-e-copyright
     defaults:
         _controller: FrameworkBundle:Template:template
         template: Pages/copyright.html.twig
 
-tcc_email:
+main_email:
     path: /send
     defaults: { _controller: Index:send }
+
+dbiagi_main_routes:
+    resource: "@DBiagiMainBundle/Controller"
+    type: annotation
