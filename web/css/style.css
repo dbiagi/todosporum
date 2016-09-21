@@ -1,11 +1,11 @@
-@font-face { 
+@font-face {
     font-family: 'kaushan_scriptregular';
-    src: url('/fonts/kaushanscript-regular-webfont.eot');
-    src: url('/fonts/kaushanscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/kaushanscript-regular-webfont.woff2') format('woff2'),
-        url('/fonts/kaushanscript-regular-webfont.woff') format('woff'),
-        url('/fonts/kaushanscript-regular-webfont.ttf') format('truetype'),
-        url('/fonts/kaushanscript-regular-webfont.svg#kaushan_scriptregular') format('svg');
+    src: url('../fonts/kaushanscript-regular-webfont.eot');
+    src: url('../fonts/kaushanscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/kaushanscript-regular-webfont.woff2') format('woff2'),
+         url('../fonts/kaushanscript-regular-webfont.woff') format('woff'),
+         url('../fonts/kaushanscript-regular-webfont.ttf') format('truetype'),
+         url('../fonts/kaushanscript-regular-webfont.svg#kaushan_scriptregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -14,11 +14,11 @@
 body {
     font-family: 'Montserrat', sans-serif;
     margin-top: 250px;
-    color: #4C4C4C;
+	color: #4C4C4C;
 }
 
 h1 {
-    margin: 15px;
+	margin: 15px;
 }
 h1,
 h1 a,
@@ -27,83 +27,87 @@ h1 img {
     width: 300px;
 }
 header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
 section, section.container {
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 #fitarosa {
-    position: fixed;
-    background: url(/img/fitarosa.png);
-    width: 30%;
-    height: 90%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    right: 0;
+	position: fixed;
+	background: url(../img/fitarosa.png);
+	width: 30%;
+	height: 90%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	right: 0;
     z-index: -1;
     background-position: top right;
     margin-top: -100px;
     opacity: 0.3;
 }
 #fitaazul {
-    position: fixed;
-    background: url(/img/fitaazul.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    bottom: 0;
+	position: fixed;
+	background: url(../img/fitaazul.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	bottom: 0;
     width: 30%;
     height: 26%;
     z-index: -1;
     opacity: 0.3;
 }
 #fitaverde {
-    position: fixed;
-    background: url(/img/fitaverde.png);
-    width: 30%;
-    height: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1;
-    opacity: 0.3;
+	position: fixed;
+	background: url(../img/fitaverde.png);
+	width: 30%;
+	height: 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: -1;
+	opacity: 0.3;
 }
 .center {
-    text-align: center;
+	text-align: center;
 }
-
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
 .clear:after {
-    content: "";
-    display: block;
-    clear: both;
+	content: "";
+	display: block;
+	clear: both;
 }
 .banner-home img {
-    max-width: 100%;
-    margin-top: -100px;
+	max-width: 100%;
+	margin-top: -100px;
 }
 .videoWrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
 }
 .videoWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 .center {
-    text-align: center;
+	text-align: center;
 }
 .videoWrapper.relatorio {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 20px;
 }
 ul.lista {
+    margin-left: 40px;
     margin-bottom: 15px;
 }
 .btn {
@@ -129,12 +133,11 @@ ul.lista {
     position: relative;
 }
 .menu li a {
-    padding: 20px 30px;
-    display: block;
+	padding: 20px 30px;
+	display: block;
 }
 
 .submenu {
-    padding-left: 0;
     display: none;
     position: absolute;
     left: 0;
@@ -142,40 +145,40 @@ ul.lista {
     border: 1px solid #bbb;
 }
 .submenu:before {
-    content: "";
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 15px 15px 15px;
-    border-color: transparent transparent #bbbbbb transparent;
-    top: -15px;
+	content: "";
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 15px 15px 15px;
+	border-color: transparent transparent #bbbbbb transparent;
+	top: -15px;
     left: 40%;
     margin-right: -15px;
 }
 .submenu:after {
-    content: "";
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 15px 15px 15px;
-    border-color: transparent transparent #ffffff transparent;
-    top: -14px;
+	content: "";
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 15px 15px 15px;
+	border-color: transparent transparent #ffffff transparent;
+	top: -14px;
     left: 50%;
     margin-left: -21px;
 }
 .menu li:hover .submenu{
-    display: block;
+	display: block;
 }
 #btnapp {
     border-radius: 0 0 0 20px;
 }
 #user {
-    position: absolute;
-    right: 0;
-    text-align: right;
-    margin: 15px;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	margin: 15px;
 }
 
 /* Galeria */
@@ -196,17 +199,17 @@ ul.lista {
 .galeriaModal .logo-sketch,.galeriaModal .layout { width: 20%;}
 .galeriaModal .logo-final, .galeriaModal .paudefitas {	width: 33%; }
 #galeria li img, .galeria li img, .galeriaModal img {
-    max-width: 100%;
+	max-width: 100%;
 }
 #busca {
-    float: right;
-    margin-top: -5px;
+	float: right;
+	margin-top: -5px;
 }
 #busca a {
-    font-size: 15px;
+	font-size: 15px;
 }
 #busca input {
-    width: auto;
+	width: auto;
 }
 .paginacao {
     text-align: center;
@@ -228,10 +231,10 @@ ul.lista {
     margin-top: -40px;
 }
 #progress li:hover a {
-    display: block;
+	display: block;
 }
 .fancybox-title-inside-wrap {
-    padding: 4px 10px;
+	padding: 4px 10px;
     margin-bottom: 5px;
 }
 .fancybox-opened .fancybox-title {
@@ -241,8 +244,8 @@ ul.lista {
 }
 /* Contato */
 .container .metade {
-    width: 50%;
-    float: left;
+	width: 50%;
+	float: left;
 }
 .perfil {
     margin-bottom: 20px;
@@ -264,100 +267,127 @@ form.login {
     max-width: 300px;
     margin: 50px auto;
 }
-
+/* Formulários */ 
+form {
+	text-align: center;
+}
+input, textarea {
+	width: 90%;
+	margin-bottom: 20px;
+	border: 1px solid #BDBDBD;
+    padding: 5px;
+}
 input.error {
     background: #FFD5D5;
 }
 label.error {
     color: #F00;
     margin: -19px 0 19px;
-    display: block;
+    display: block !important;
 }
 /* Footer */
 footer {
-    text-align: center;
-    padding: 15px 10px;
-    background: #4B4B4B;
+	text-align: center;
+	padding: 15px 10px;
+	background: #4B4B4B;
 }
 footer a, footer p, footer span {
     color: #fff;
     font-size: 11px;
 }
 footer a.termos {
-    font-size: 13px;
+	font-size: 13px;
     margin-bottom: 10px;
     display: inline-block;
 }
 
 /* Formatação */
-a{
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    font-size: 16px;
-}
-
 h2, h3, h4, h5 {
-    margin-bottom: 10px;
-    font-family: 'kaushan_scriptregular';
+	margin-bottom: 10px;
+	font-family: 'kaushan_scriptregular';
 }
 h2 {
-    font-size: 40px;
+	font-size: 40px;
 }
 h3 {
-    font-size: 27px;
+	font-size: 27px;
 }
 h4 {
-    font-size: 22px;
+	font-size: 22px;
 }
 h5 {
-    font-size: 18px;
+	font-size: 18px;
 }
 p, quote {
     margin-bottom: 15px;
     font-size: 14px
 }
 h6 {
-    font-size: 12px;
+	font-size: 12px;
 }
 .rs, .rs:hover {
-    color: #FF2C62;
+	color: #FF2C62 !important;
 }
 .az, .az:hover {
-    color: #3E458E;
+	color: #3E458E !important;
 }
 .vd, .vd:hover {
-    color: #00BF92;
+	color: #00BF92 !important;
 }
 .am, .am:hover {
-    color: #FFB600;	
+	color: #FFB600 !important;	
 }
 .bg_rs, .bg_rs:hover {
-    background: #FF2C62;
-    color: #fff;
+	background: #FF2C62 !important;
+	color: #fff !important;
 }
 .bg_az, .bg_az:hover {
-    background: #3E458E;
-    color: #fff;
+	background: #3E458E !important;
+	color: #fff !important;
 }
 .bg_vd, .bg_vd:hover {
-    background: #00BF92;
-    color: #fff;
+	background: #00BF92 !important;
+	color: #fff !important;
 }
 .bg_am, .bg_am:hover {
-    background: #FFB600;	
-    color: #fff;
+	background: #FFB600 !important;	
+	color: #fff !important;
 }
 
 quote {
-    margin-left: 60px;
-    font-style: italic;
-    display: block;
+	margin-left: 60px;
+	font-style: italic;
+	display: block;
 }
 quote i {
-    font-style: normal;
+	font-style: normal;
 }
 
-div.title{
-    margin-bottom: 40px;
+
+@media (max-width: 1500px ) {
+	.container {
+		margin: 0 130px;
+		margin-bottom: 40px;
+	}
+}
+@media (max-width: 950px ) {
+	.container {
+		margin: 0 90px;
+		margin-bottom: 40px;
+	}
+}
+@media (max-width: 700px ) {
+	.container {
+		margin: 0 50px;
+		margin-bottom: 40px;
+	}
+}
+@media (max-width: 500px ) {
+	.container {
+		margin: 0 50px;
+		margin-bottom: 40px;
+	}
+	quote {
+		margin-left: 35px;
+	}
 }
