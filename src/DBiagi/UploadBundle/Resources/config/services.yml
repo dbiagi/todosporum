@@ -1,0 +1,5 @@
+services:
+    car_preupload_event:
+        class: DBiagi\FileBundle\EventListener\FileUploadListener
+        tags: 
+            - { name: kernel.event_subscriber }
