@@ -40,3 +40,9 @@
 
 # Netbeans Folder
 /nbproject/
+
+# js e css libs
+/web/libs/
+
+# Upload
+/web/upload/
