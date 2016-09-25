@@ -36,7 +36,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form_themes: ['bootstrap_3_horizontal_layout.html.twig']
+    form_themes: 
+        - 'bootstrap_3_horizontal_layout.html.twig'
+        - 'VichUploaderBundle:Form:fields.html.twig'
         
 # Doctrine Configuration
 doctrine:
@@ -75,3 +77,11 @@ fos_user:
     registration:
         form:
             type: DBiagi\MainBundle\Form\RegistrationType
+            
+vich_uploader:
+    db_driver: orm
+    mappings:
+        upload_file:
+            uri_prefix:         /upload
+            upload_destination: '%kernel.root_dir%/../web/upload'
+            namer: vich_uploader.namer_uniqid

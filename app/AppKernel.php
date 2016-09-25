@@ -23,9 +23,15 @@ class AppKernel extends Kernel
             // FOS Bundles
             new FOS\UserBundle\FOSUserBundle(),
             
+            // Upload Bundle
+            new \Vich\UploaderBundle\VichUploaderBundle(),
+            
             // My Bundles
             new DBiagi\MainBundle\DBiagiMainBundle(),
             new DBiagi\UtilsBundle\DBiagiUtilsBundle(),
+            
+            new DBiagi\CarBundle\DBiagiCarBundle(),
+            new DBiagi\UploadBundle\DBiagiUploadBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
