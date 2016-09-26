@@ -29,7 +29,7 @@ class UploadType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DBiagi\FileBundle\Entity\File'
+            'data_class' => 'DBiagi\UploadBundle\Entity\Upload'
         ));
     }
 }

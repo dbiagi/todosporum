@@ -50,18 +50,38 @@ class Upload
     private $updatedAt;
 
     /**
-     * 
      * @Vich\UploadableField(mapping="upload_file", fileNameProperty="path")
-     * 
-     * @var File
+     * @var File|UploadFile
      */
     private $file;
     
     /**
+     * File real path.
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string 
      */
     private $path;
+    
+    /**
+     * File size in bytes.
+     * @ORM\Column(name="size", type="integer")
+     * @var int
+     */
+    private $size;
+    
+    /**
+     * File extension.
+     * @ORM\Column(name="extension", type="string", length=10, nullable=true)
+     * @var string
+     */
+    private $extension;
+    
+    /**
+     * File mimetype.
+     * @ORM\Column(name="mime", type="string", length=40, nullable=true)
+     * @var string
+     */
+    private $mime;
     
     /**
      * Get id
@@ -200,7 +220,64 @@ class Upload
                 ->atPath('file')
                 ->addViolation();
         }
-    }    
+    }
+    
+    /**
+     * Get file mime type.
+     * @return string
+     */
+    public function getMime(){
+        return $this->mime;
+    }
+    
+    /**
+     * Set mime type.
+     * @param string $mime
+     * @return \DBiagi\UploadBundle\Entity\Upload
+     */
+    public function setMime($mime){
+        $this->mime = $mime;
+        
+        return $this;
+    }
+    
+    /**
+     * Get size.
+     * @return int
+     */
+    public function getSize(){
+        return $this->size;
+    }
+    
+    /**
+     * Set size.
+     * @param int $size
+     * @return \DBiagi\UploadBundle\Entity\Upload
+     */
+    public function setSize($size){
+        $this->size = $size;
+        
+        return $this;
+    }
+    
+    /**
+     * Get extension.
+     * @return string
+     */
+    public function getExtension(){
+        return $this->extension;
+    }
+    
+    /**
+     * Set extension.
+     * @param string $extension
+     * @return \DBiagi\UploadBundle\Entity\Upload
+     */
+    public function setExtension($extension){
+        $this->extension = $extension;
+        
+        return $this;
+    }
     
     /** @ORM\PrePersist */
     public function onPrePersist(){
@@ -212,5 +289,6 @@ class Upload
     public function onPreUpdate(){
         $this->updatedAt = new \DateTime();
     }
+    
 }
 
