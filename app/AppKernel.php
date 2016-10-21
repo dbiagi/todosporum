@@ -24,13 +24,13 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             
             // Upload Bundle
-            new \Vich\UploaderBundle\VichUploaderBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Lexik\Bundle\MonologBrowserBundle\LexikMonologBrowserBundle(),
             
             // My Bundles
             new DBiagi\MainBundle\DBiagiMainBundle(),
-            new DBiagi\UtilsBundle\DBiagiUtilsBundle(),
-            
-            new DBiagi\CarBundle\DBiagiCarBundle(),
             new DBiagi\UploadBundle\DBiagiUploadBundle(),
         ];
 

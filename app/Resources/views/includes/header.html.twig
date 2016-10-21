@@ -12,12 +12,12 @@
         </li>
         <li><a href="{{ path('animation_list') }}">Galeria</a></li>
         <li><a href="{{ path('main_contato') }}">Contato</a></li>
-            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <li><a id="btnapp" class="bg_vd" href="{{ path('animation_list') }}">AnimApp</a></li>
             <li><a class="bg_az" href="{{ path('fos_user_security_logout') }}">Sair</a></li>
             <li class="am" id="user">Olá {{ app.user.firstname|capitalize }}!</li>
-            {% else %}
+        {% else %}
             <li><a id="btnapp" class="bg_vd" href="{{ path('fos_user_security_login') }}">AnimApp</a></li>
-            {% endif %}
+        {% endif %}
     </ul>
 </header>

@@ -151,3 +151,8 @@ a.icon-fechar, .icon-fechar:hover {color: #f53061}
 }
 #acoes ul.fechado { display: none; }
 #acoes ul.aberto { display: block; }
+
+/* TOOLBOX */
+a:hover.tool {
+    color: red;
+}

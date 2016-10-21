@@ -1,16 +1,5 @@
-d_biagi_upload:
-    resource: "@DBiagiUploadBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-d_biagi_car:
-    resource: "@DBiagiCarBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-
-d_biagi_main_animation:
-    resource: "@DBiagiMainBundle/Controller/AnimationController.php"
+main_routes:
+    resource: "@DBiagiMainBundle/Controller/"
     type:     annotation
 
 # Imports MainBundle routes
@@ -19,3 +8,7 @@ dbiagi_main_bundle:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+lexik_monolog_browser:
+    resource: "@LexikMonologBrowserBundle/Resources/config/routing.xml"
+    prefix:   /log

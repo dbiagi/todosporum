@@ -19,5 +19,7 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     #admin info
-    admin_name: admin
-    admin_email: admin@invalid.com
+    admin_username: admin
+    admin_pass: admin
+    admin_name: Diego de Biagi
+    admin_email: diegobiagiviana@gmail.com

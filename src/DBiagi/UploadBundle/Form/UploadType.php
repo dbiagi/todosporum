@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Form\Extension\Core\Type as FormTypes;
+use Symfony\Component\Form\FormEvents;
 
 class UploadType extends AbstractType
 {
@@ -20,6 +21,7 @@ class UploadType extends AbstractType
             ->add('file', VichImageType::class, [
                 'required' => true
             ])
+            
         ;
     }
     

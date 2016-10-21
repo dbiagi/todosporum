@@ -12,13 +12,14 @@ security:
 
     firewalls:
         main:
+            http_basic: ~
             pattern: ^/
             form_login:
                 provider: fos_userbundle
             logout:       true
             anonymous:    true
             remember_me:
-                secret: %secret%
+                secret: "%secret%"
                 lifetime: 604800 # 1 week in seconds
                 path:     /
 

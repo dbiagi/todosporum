@@ -1,5 +1,6 @@
 services:
     car_preupload_event:
         class: DBiagi\UploadBundle\EventListener\UploadListener
+        arguments: ["@doctrine.orm.entity_manager", "@logger"]
         tags: 
             - { name: kernel.event_subscriber }

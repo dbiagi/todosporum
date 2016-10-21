@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %} 
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/animapp.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animapp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
 {% endblock %}
 
@@ -11,16 +11,16 @@
     <div class="containerApp">
         <div id="ferramentas">
             <ul>
-                <li><a class="icon-pincel" onclick="alertaFerramenta('Pincel')" title="Pincel"></a></li>
-                <li><a class="icon-borracha" onclick="alertaFerramenta('Borracha')" title="Borracha"></a></li>
-                <li><a class="icon-linha" onclick="alertaFerramenta('Linha')" title="Linha"></a></li>
-                <li><a class="icon-retangulo" onclick="alertaFerramenta('Retângulo')" title="Retângulo"></a></li>
-                <li><a class="icon-elipse" onclick="alertaFerramenta('Elipse')" title="Elipse"></a></li>
-                <li><a class="icon-mover" onclick="alertaFerramenta('Mover')" title="Mover"></a></li>
-                <li><a class="icon-redimensionar" onclick="alertaFerramenta('Redimensionar')" title="Redimensionar"></a></li>
-                <li><a class="icon-balde" onclick="alertaFerramenta('Lata de tinta')" title="Lata de tinta"></a></li>
-                <li><a class="icon-anexar" onclick="alertaFerramenta('Adicionar arquivo')" title="Adicionar arquivo"></a></li>
-                <li><a class="icon-cor" onclick="alertaFerramenta('Cor')" title="Cor" style="color: #9d38da"></a></li>
+                <li><a class="icon-pincel tool" title="Pincel"></a></li>
+                <li><a class="icon-borracha tool" title="Borracha"></a></li>
+                <li><a class="icon-linha tool" title="Linha"></a></li>
+                <li><a class="icon-retangulo tool" title="Retângulo"></a></li>
+                <li><a class="icon-elipse tool" title="Elipse"></a></li>
+                <li><a class="icon-mover tool" title="Mover"></a></li>
+                <li><a class="icon-redimensionar tool" title="Redimensionar"></a></li>
+                <li><a class="icon-balde tool" title="Lata de tinta"></a></li>
+                <li><a class="icon-anexar tool" title="Adicionar arquivo"></a></li>
+                <li><a class="icon-cor tool" title="Cor"></a></li>
             </ul>
         </div>
         <div id="acoes">
@@ -43,9 +43,9 @@
             <div id="barra-topo">
                 <div id="timer">00:00</div>
                 <ul>
-                    <li><a class="icon-desfazer" title="Desfazer" onclick="alertaFerramenta('Desfazer')"></a></li>
-                    <li><a class="icon-refazer" title="Refazer" onclick="alertaFerramenta('Refazer')"></a></li>
-                    <li><a class="icon-ok" title="Finalizar" onclick="alertaFerramenta('Finalizar Animação')"></a></li>
+                    <li><a class="icon-desfazer" title="Desfazer" ></a></li>
+                    <li><a class="icon-refazer" title="Refazer" ></a></li>
+                    <li><a class="icon-ok" title="Finalizar" ></a></li>
                     <li><a href="galeria-animapp.php" class="icon-fechar" title="Sair do App"></a></li>
                 </ul>    
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div id="timeline">
             <div class="botoes">
-                <a class="icon-rever" onclick="alertaFerramenta('Rever animação do Início')"></a>
+                <a class="icon-rever"></a>
                 <a class="playpause icon-play"></a>
             </div>
             <div id="timebar">

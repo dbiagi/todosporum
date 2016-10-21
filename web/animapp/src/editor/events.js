@@ -1,0 +1,1 @@
+DrawingApp.Editor.Events = function(){}

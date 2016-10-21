@@ -37,26 +37,29 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes: 
-        - 'bootstrap_3_horizontal_layout.html.twig'
         - 'VichUploaderBundle:Form:fields.html.twig'
         
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   pdo_mysql
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
-
+        connections:
+            default:
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+        
+            monolog:
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -77,11 +80,62 @@ fos_user:
     registration:
         form:
             type: DBiagi\MainBundle\Form\RegistrationType
+
+monolog:
+    channels: [user, editor]
+    handlers:
+        debug_group:
+            type: group
+            members: [debug_db, debug_chrome]
+            channels:   [app, user, editor]
+        debug_db:
+            type: fingers_crossed
+            action_level: debug
+            handler: debug_file
+        debug_file:
+            type: stream
+            path: "%kernel.logs_dir%/debug.log"
+            level: debug
             
-vich_uploader:
-    db_driver: orm
-    mappings:
-        upload_file:
-            uri_prefix:         /upload
-            upload_destination: '%kernel.root_dir%/../web/upload'
-            namer: vich_uploader.namer_uniqid
+        debug_chrome:
+            type: chromephp
+            level: debug
+        
+        warning_group:
+            type: group
+            members: [warning_file]
+        warning_file:
+            type: stream
+            level: warning
+            path: "%kernel.logs_dir%/warning.log"
+         
+        critical_group:
+            type:       group
+            members:    [critical_db]
+        critical_db:
+            type: fingers_crossed
+            action_level: error
+            handler: critical_file 
+        critical_file:
+            type: stream
+            path: "%kernel.logs_dir%/critical.log"
+            level: critical
+            
+#        database:
+#            type:         service
+#            id:           lexik_monolog_browser.handler.doctrine_dbal
+            
+#        app:
+#            type:         fingers_crossed
+#            action_level: error
+#            channels:     [app]
+#            handler:      lexik_monolog_browser
+        
+        
+lexik_monolog_browser:
+    doctrine:
+        connection_name: monolog
+        
+knp_paginator:
+    template: 
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig

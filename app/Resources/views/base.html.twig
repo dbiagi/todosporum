@@ -13,7 +13,7 @@
 
         {% block stylesheets %}
             <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-            <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+            <link href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
             <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
             <link href="/css/jquery.fancybox.css" rel="stylesheet" type="text/css">
             <link href="/css/style.css" rel="stylesheet" type="text/css">
@@ -23,10 +23,10 @@
         {% block body %} {% endblock %}
 
         {% block javascripts %}
-            <script src="/js/jquery.min.js"></script>
-            <script src="/js/bootstrap.min.js"></script><script src="/js/jquery.fancybox.js"></script>
+            <script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('/js/jquery.fancybox.js') }}"></script>
             <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
-            <script src="/js/script.js"></script>
+            <script src="{{ asset('/js/script.js') }}"></script>
         {% endblock %}
     </body>
 </html>

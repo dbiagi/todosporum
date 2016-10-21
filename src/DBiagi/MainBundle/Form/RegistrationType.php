@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormEvent;
 
 class RegistrationType extends AbstractType {
 
@@ -45,6 +47,11 @@ class RegistrationType extends AbstractType {
                     'class' => 'btn bg_az'
                 ]
             ])
+            ->addEventListener(FormEvents::POST_SUBMIT, function(FormEvent $event){
+                $data = $event->getForm()->getData();
+                $data->setUsername($data->getEmail());
+                $event->getForm()->setData($data);
+            })
         ;
     }
 

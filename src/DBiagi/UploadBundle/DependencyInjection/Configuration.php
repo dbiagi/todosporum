@@ -18,8 +18,15 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('d_biagi_upload');
+        $rootNode = $treeBuilder->root('db_upload');
 
+        $rootNode
+            ->children()
+                ->integerNode('inteiro')
+                    ->defaultValue(32)
+                ->end()
+            ->end()
+            ;
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

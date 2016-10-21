@@ -24,12 +24,13 @@ class DBiagiUploadExtension extends Extension implements PrependExtensionInterfa
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-        
+        $loader->load('services.yml');        
     }
 
-    public function prepend(ContainerBuilder $container) {
-        //$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+    public function prepend(ContainerBuilder $container) {       
+        $configPath = (new FileLocator(__DIR__ . '/../Resources/config'))->locate('config.yml');
+        $configs = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($configPath));
+        $container->prependExtensionConfig('vich_uploader', $configs['vich_uploader']);
     }
 
 }

@@ -46,3 +46,5 @@
 
 # Upload
 /web/upload/
+/src/DBiagi/CarBundle/
+/node_modules/

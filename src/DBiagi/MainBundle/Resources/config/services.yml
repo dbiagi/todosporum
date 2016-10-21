@@ -9,3 +9,8 @@ services:
         class: DBiagi\MainBundle\EventListener\UserRegistrationListener
         tags:
             - { name: kernel.event_subscriber }
+            
+    faker:
+        class: Faker\Generator
+        factory: [Faker\Factory, create]
+        arguments: ["%locale%"]
