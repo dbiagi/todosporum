@@ -22,10 +22,10 @@ class UsersData extends AbstractFixture implements ContainerAwareInterface, Orde
     /** @var \Faker\Generator */
     private $faker = null;
 
-    const USERS_COUNT = 30;
+    const USERS_COUNT = 2;
 
     public function load(ObjectManager $manager) {
-        $this->faker = $this->container->get('utils.faker');
+        $this->faker = $this->container->get('faker');
 
         $this->loadAdmin($manager);
         $this->loadUsers($manager);
@@ -46,6 +46,8 @@ class UsersData extends AbstractFixture implements ContainerAwareInterface, Orde
             ;
             
             $manager->persist($user);
+            
+            $this->setReference('user-' . $i, $user);
         }
 
         $manager->flush();

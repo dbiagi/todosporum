@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 gulp.task('concat', function () {
     return gulp.src(src)
         .pipe(sourcemaps.init())
-        .pipe(concat('animapp.js'))
+        .pipe(concat('build.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist'))
 })

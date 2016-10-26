@@ -11,6 +11,10 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% endblock %}
 
+        {% block jquery %} 
+            <script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
+        {% endblock %}
+        
         {% block stylesheets %}
             <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
             <link href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -23,7 +27,6 @@
         {% block body %} {% endblock %}
 
         {% block javascripts %}
-            <script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
             <script src="{{ asset('/js/jquery.fancybox.js') }}"></script>
             <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
             <script src="{{ asset('/js/script.js') }}"></script>

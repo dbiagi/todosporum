@@ -1,3 +1,15 @@
-var DrawingApp = {}
+var Animapp = {}
 
-var test = 12
+/**
+ * Main class.
+ * @class Editor
+ * @returns object
+ */
+Animapp.Editor = function(el){
+    var _canvas = el
+    
+    var createCanvas = function(el){
+        
+    }
+}
+ 

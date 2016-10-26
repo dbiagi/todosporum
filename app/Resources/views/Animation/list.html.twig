@@ -10,13 +10,6 @@
                 </form>
             </div>
         </h2>
-        
-        {% block animation_list %} 
-            {% include 'Widgets/animation_list.html.twig' %}
-        {% endblock %}
-        
-        {% block pagination %} 
-            {% include 'includes/pagination.html.twig' %}
-        {% endblock %}
+        {% include 'Widgets/animation_list.html.twig' with { animations: animations } only %}
     </section>
 {% endblock %}

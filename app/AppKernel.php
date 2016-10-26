@@ -26,7 +26,10 @@ class AppKernel extends Kernel
             // Upload Bundle
             new Vich\UploaderBundle\VichUploaderBundle(),
             
+            // Paginator Bundle
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            
+            // Monolog Browser
             new Lexik\Bundle\MonologBrowserBundle\LexikMonologBrowserBundle(),
             
             // My Bundles

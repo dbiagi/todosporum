@@ -1,7 +1,10 @@
-DrawingApp.Canvas = function (el) {
-
-}
-
-DrawingApp.Events = function () {
-
+Animapp.Toolbox = function(){
+    var _current = null,
+        _tools = [],
+        _el = {}
+    
+    // Contructor
+    (function(){
+        
+    })()
 }

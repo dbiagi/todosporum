@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %} 
-    
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animapp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+{% endblock %}
+
+{% block javascripts %} 
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('animapp/dist/build.js') }}"></script>
 {% endblock %}
 
 {% block body %} 
@@ -49,9 +53,7 @@
                     <li><a href="galeria-animapp.php" class="icon-fechar" title="Sair do App"></a></li>
                 </ul>    
             </div>
-            <div id="animapp">
-
-            </div>
+            <div id="animapp"></div>
         </div>
         <div id="timeline">
             <div class="botoes">
@@ -64,5 +66,13 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var el = $('#animapp')[0]
+            var app = new Animapp.Editor(el)
+        })
+
+    </script>
 {% endblock %}
 

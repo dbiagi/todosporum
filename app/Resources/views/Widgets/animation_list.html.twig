@@ -1,8 +1,8 @@
 {% block animation_list_content %} 
     <ul id="progress" class="galeria clear">
-        {% for i in range(1, 12) %}
+        {% for animation in animations %}
             <li>
-                <a data-fancybox-type="iframe" href="emandamento.html"class="videos btn-mini bg_am">pré-visualizar</a>
+                <a data-fancybox-type="iframe" href="#"class="videos btn-mini bg_am">pré-visualizar</a>
                 <img src="{{ asset('img/video.jpg') }}" alt="">
                 <a href="{{ path('main_animapp') }}" class="btn-mini bg_az">Continuar esta!</a>
             </li>
