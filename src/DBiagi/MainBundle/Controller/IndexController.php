@@ -9,5 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class IndexController extends Controller {
    
-
+	public function homeAction(Request $request){
+		$this->get('request');
+	}
 }

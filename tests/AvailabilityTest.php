@@ -5,7 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 /**
  * Description of StatusCodeTest
  *
- * @author diego
+ * @author Diego de Biagi<diego.biagi@twodigital.com.br>
  */
 class AvailabilityTest extends WebTestCase {
 
@@ -18,6 +18,8 @@ class AvailabilityTest extends WebTestCase {
             '/register',
             '/projeto',
         ];
+        
+        
     }
 
     public function testPageSucceful() {
@@ -26,8 +28,9 @@ class AvailabilityTest extends WebTestCase {
         
         foreach ($this->getUris() as $uri) {
             $client->request('GET', $uri);            
-            $this->assertTrue($client->getResponse()->isSuccessful(), sprintf('Uri %s loaded with status code: %s.'));
+            $this->assertTrue($client->getResponse()->isSuccessful(), sprintf('Uri %s loaded with status code: %s.'));            
         }
+        
     }
 
 }

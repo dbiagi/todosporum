@@ -32,6 +32,10 @@ class AppKernel extends Kernel
             // Monolog Browser
             new Lexik\Bundle\MonologBrowserBundle\LexikMonologBrowserBundle(),
             
+            // Route translator bundles
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+            
             // My Bundles
             new DBiagi\MainBundle\DBiagiMainBundle(),
             new DBiagi\UploadBundle\DBiagiUploadBundle(),

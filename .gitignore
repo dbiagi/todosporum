@@ -48,3 +48,8 @@
 /web/upload/
 /src/DBiagi/CarBundle/
 /node_modules/
+
+# Eclipse projet files
+.buildpath
+.project
+.settings
