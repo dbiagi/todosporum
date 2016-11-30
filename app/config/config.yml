@@ -9,7 +9,7 @@ parameters:
     locale: pt_BR
 
 framework:
-    #esi:             ~
+    esi:             { enabled: true }
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
@@ -28,7 +28,7 @@ framework:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
         save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
-    fragments:       ~
+    fragments:       { path: "/_esi_fragments" }
     http_method_override: true
     assets: ~
 
@@ -82,44 +82,44 @@ fos_user:
             type: DBiagi\MainBundle\Form\RegistrationType
 
 monolog:
-    channels: [user, editor]
+    channels: [app, user, editor]
     handlers:
         debug_group:
             type: group
-            members: [debug_db, debug_chrome]
             channels:   [app, user, editor]
-        debug_db:
-            type: fingers_crossed
-            action_level: debug
-            handler: debug_file
+            members: [debug_file, debug_chrome]
         debug_file:
             type: stream
             path: "%kernel.logs_dir%/debug.log"
             level: debug
-            
         debug_chrome:
             type: chromephp
             level: debug
-        
+
         warning_group:
             type: group
-            members: [warning_file]
-        warning_file:
-            type: stream
+            channels: [app, user, editor]
+            members: [warning_db]
+        warning_db:
+            type: fingers_crossed
             level: warning
-            path: "%kernel.logs_dir%/warning.log"
-         
+            handler: database
+
         critical_group:
             type:       group
-            members:    [critical_db]
+            members:    [critical_db, critical_file]
         critical_db:
             type: fingers_crossed
             action_level: error
-            handler: critical_file 
+            handler: critical_file
         critical_file:
             type: stream
             path: "%kernel.logs_dir%/critical.log"
-            level: critical
+            level: error
+
+        database:
+            type: service
+            id: lexik_monolog_browser.handler.doctrine_dbal
             
 #        database:
 #            type:         service
@@ -135,6 +135,7 @@ monolog:
 lexik_monolog_browser:
     doctrine:
         connection_name: monolog
+        table_name: syslog
         
 knp_paginator:
     template: 

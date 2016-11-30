@@ -44,7 +44,7 @@ class Animation
     private $updatedAt;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @var User
      */
     private $author;

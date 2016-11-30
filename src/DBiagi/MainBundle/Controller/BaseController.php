@@ -2,9 +2,9 @@
 
 namespace DBiagi\MainBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Doctrine\ORM\EntityRepository;
+use DBiagi\MainBundle\Repository\AnimationRepository;
 use Knp\Component\Pager\Paginator;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Base controller.
@@ -13,7 +13,7 @@ class BaseController extends Controller {
     
     /**
      * Get entity repository.
-     * @return EntityRepository
+     * @return AnimationRepository
      */
     protected function getAnimationRepository() {
         return $this->get('main.animation_repository');
@@ -26,5 +26,5 @@ class BaseController extends Controller {
     protected function getPaginator() {
         return $this->get('knp_paginator');
     }
-
+    
 }

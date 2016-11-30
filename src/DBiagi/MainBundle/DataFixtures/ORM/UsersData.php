@@ -22,7 +22,7 @@ class UsersData extends AbstractFixture implements ContainerAwareInterface, Orde
     /** @var \Faker\Generator */
     private $faker = null;
 
-    const USERS_COUNT = 2;
+    const COUNT = 20;
 
     public function load(ObjectManager $manager) {
         $this->faker = $this->container->get('faker');
@@ -32,7 +32,7 @@ class UsersData extends AbstractFixture implements ContainerAwareInterface, Orde
     }
 
     private function loadUsers(ObjectManager $manager) {
-        for ($i = 0; $i < static::USERS_COUNT; $i++) {
+        for ($i = 0; $i < static::COUNT; $i++) {
             $email = $this->faker->email;
             
             $user = new User();

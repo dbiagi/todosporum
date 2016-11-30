@@ -10,4 +10,7 @@ namespace DBiagi\MainBundle\Repository;
  */
 class AnimationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findLatest($limit){
+        return $this->findBy([], ['updatedAt' => 'DESC'], $limit);
+    }
 }

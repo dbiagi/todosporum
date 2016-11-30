@@ -2,13 +2,13 @@
 
 namespace DBiagi\MainBundle\DataFixtures\ORM;
 
+use DBiagi\MainBundle\Entity\Animation;
+use DBiagi\MainBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use DBiagi\MainBundle\Entity\User;
-use DBiagi\MainBundle\Entity\Animation;
 
 /**
  * Description of UsersData
@@ -23,7 +23,7 @@ class AnimationData extends AbstractFixture implements ContainerAwareInterface, 
     /** @var \Faker\Generator */
     private $faker = null;
 
-    const COUNT = 2;
+    const COUNT = 60;
 
     public function load(ObjectManager $manager) {
         /* @var $faker \Faker\Generator */
@@ -31,9 +31,9 @@ class AnimationData extends AbstractFixture implements ContainerAwareInterface, 
 
         for ($i = 0; $i < AnimationData::COUNT; $i++) {
             $a = new Animation();
-            $author = $this->getReference('user-' . rand(1, UsersData::USERS_COUNT - 1));
+            $author = $this->getReference('user-' . rand(1, UsersData::COUNT - 1));
             $a
-                ->setTitle($faker->title)
+                ->setTitle($faker->sentence(4))
                 ->setAuthor($author)
             ;
             

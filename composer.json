@@ -22,7 +22,7 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/user-bundle": "2.0.x-dev",
+        "friendsofsymfony/user-bundle": "dev-master#962a7f3603cce63dae2a84839f030ddb748d890b",
         "doctrine/doctrine-fixtures-bundle": "2.3.0",
         "doctrine/data-fixtures": "1.1.1",
         "fzaninotto/faker": "^1.6",
@@ -37,12 +37,17 @@
     },
     "scripts": {
         "symfony-scripts": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "build-parameters": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "create-schema": [
+            "DBiagi\\Composer\\CreateSchema::create"
         ],
         "post-install-cmd": [
             "@symfony-scripts"

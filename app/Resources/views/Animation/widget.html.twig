@@ -1,4 +1,4 @@
-{% block animation_list_content %} 
+{% block animation_widget %} 
     <ul id="progress" class="galeria clear">
         {% for animation in animations %}
             <li>
@@ -8,4 +8,7 @@
             </li>
         {% endfor %}
     </ul>
+    <div class="container">
+        {{ knp_pagination_render(animations) }}
+    </div>
 {% endblock %}

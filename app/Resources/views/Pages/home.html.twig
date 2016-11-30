@@ -22,7 +22,9 @@
         <h2 class="rs">Veja o que já foi feito aqui</h2>
 
         {% block animation_list %} 
-            {% include 'Widgets/animation_list.html.twig' %}
+            {{ render_esi(controller('DBiagiMainBundle:Animation:Widget', {
+                page: app.request.get('page')|default(1)
+            })) }}
         {% endblock %}
         <a class="btn bg_az" href="{{ path('animation_list') }}">VER GALERIA COMPLETA</a>
 
