@@ -8,20 +8,36 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends Controller {
-   
-	public function homeAction(Request $request){
 
+	/**
+	 * @Route("/", name="main_home")
+	 * @return Response
+	 */
+	public function indexAction(){
+		return $this->render('Pages/home.html.twig');
 	}
 
-    /**
-     * @Route("/test")
-     */
-	public function testAction(Request $request){
-	    $msg = $request->query->get('msg', 'nada de nada de nada de nade de seu madruga');
-	    $this->get('logger')->error($msg, [
-	        'exception' => new \Exception('Isso é uma exceção')
-        ]);
+	/**
+	 * @Route("projeto", name="main_projeto")
+	 * @return Response
+	 */
+    public function projetoAction(){
+		return $this->render('Pages/projeto.html.twig');
+    }
 
-	    return new Response($msg);
+	/**
+	 * @Route("/politica-de-privacidade-e-copyright", name="main_politica")
+	 * @return Response
+	 */
+    public function politicaAction(){
+    	return $this->render('Pages/termo.html.twig');
+    }
+
+	/**
+	 * @Route("/termo", name="main_termo")
+	 * @return Response
+	 */
+    public function termoAction(){
+    	return $this->render('Pages/termo.html.twig');
     }
 }

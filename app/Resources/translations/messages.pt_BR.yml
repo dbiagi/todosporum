@@ -1,3 +1,4 @@
 contact.success: Enviamos sua mensagem, leremos assim que der. Obrigado =)
 contact.error: Ops, deu algo errado. Por favor, tente novamente mais tarde.
 contact.missing_fields: Preencha todos os campos por favor.
+Bad credentials.: Usuário e senha não conferem

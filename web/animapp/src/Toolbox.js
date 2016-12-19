@@ -3,8 +3,5 @@ Animapp.Toolbox = function(){
         _tools = [],
         _el = {}
     
-    // Contructor
-    (function(){
-        
-    })()
+
 }

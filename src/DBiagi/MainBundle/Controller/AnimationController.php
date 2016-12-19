@@ -15,12 +15,10 @@ class AnimationController extends BaseController {
     /**
      * @Route("/galeria", name="animation_list")
      */
-    public function listAction(request $request) {
+    public function listAction(Request $request) {
         $currentpage = $request->query->getInt('page', 1);
 
-        $response = $this->render(
-            'animation/list.html.twig',
-            [
+        $response = $this->render('animation/list.html.twig',[
                 'animations' => $this->getAnimations($currentpage),
             ]
         );

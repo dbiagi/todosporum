@@ -20,15 +20,8 @@ class UserRegistrationListener implements EventSubscriberInterface{
     }
     
     public function onUserRegistrationInitialize(UserEvent $event){
-        $user = $event->getUser();
         $values = $event->getRequest()->get('fos_user_registration_form');
-        
-        $username = sprintf('%s.%s',
-            strtolower($values['firstname']), 
-            strtolower($values['lastname'])
-        );
-        
-        $user->setUsername($username);
+	    $event->getUser()->setUsername($values['email']);
     }
 
 }

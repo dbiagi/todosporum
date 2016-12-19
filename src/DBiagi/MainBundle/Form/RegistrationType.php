@@ -47,11 +47,6 @@ class RegistrationType extends AbstractType {
                     'class' => 'btn bg_az'
                 ]
             ])
-            ->addEventListener(FormEvents::POST_SUBMIT, function(FormEvent $event){
-                $data = $event->getForm()->getData();
-                $data->setUsername($data->getEmail());
-                $event->getForm()->setData($data);
-            })
         ;
     }
 

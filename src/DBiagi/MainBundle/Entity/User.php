@@ -87,4 +87,10 @@ class User extends BaseUser {
         return $this;
     }
 
+    public function getUsername() {
+	    return $this->getEmail();
+    }
+
+
+
 }

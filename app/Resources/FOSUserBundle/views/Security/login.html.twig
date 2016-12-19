@@ -1,31 +1,36 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %} 
+{% block content %}
     <section class="container">
         <div class="row col-sm-offset-3 title">
             <h2 class="az">Faça login para continuar</h2>
         </div>
+        {% if error.message is defined %}
+            <div class="col-md-offset-3 text-danger">
+                <p>{{ error.message|trans }}</p>
+            </div>
+        {% endif %}
         <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
             <div class="row form-group">
-                <label class="col-sm-3 col-lg-3 col-md-3 col-xs-3 control-label" for="username">Usuário/Email</label>
+                <label class="col-sm-3 col-lg-3 col-md-3 col-xs-3 control-label" for="username">Email</label>
                 <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    <input class="form-control" type="email" id="username" name="_username" value="{{ last_username }}" required="required"/>
                 </div>
             </div>
 
             <div class="row form-group">
                 <label class="col-sm-3 col-lg-3 col-md-3 col-xs-3 control-label" for="password">Senha: </label>
                 <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <input class="form-control col-lg-6" type="password" id="password" name="_password" required="required" />
+                    <input class="form-control col-lg-6" type="password" id="password" name="_password" required="required"/>
                 </div>
             </div>
 
             <div class="row form-group">
                 <div class="checkbox col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
                     <label>
-                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> 
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                         Mantenha-me conectado
                     </label>
                 </div>
@@ -33,10 +38,10 @@
 
             <div class="row form-group">
                 <div class="col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <input class="btn bg_rs" type="submit" id="_submit" name="_submit" value="Entrar" />
+                    <input class="btn bg_rs" type="submit" id="_submit" name="_submit" value="Entrar"/>
                 </div>
             </div>
-            
+
             <div class="row form-group">
                 <div class="col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
                     <a href="{{ path('fos_user_registration_register') }}" class="btn bg_am btn-mini">Ainda não sou cadastrado</a>
@@ -44,7 +49,5 @@
             </div>
         </form>
     </section>
-
-
 {% endblock %}
 

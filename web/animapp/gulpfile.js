@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     minify = require('gulp-minify'),
     uglify = require('gulp-uglify'),
-    src = ['src/core.js', 'src/**/*.js'],
+    src = ['src/index.js', 'src/**/*.js'],
     log = console.log
 
 gulp.task('concat', function () {

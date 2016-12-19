@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Todos Por Um" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" singleton="true" server_name="Todos Por Um" start_url="/app_dev.php">
+    <method />
+  </configuration>
+</component>

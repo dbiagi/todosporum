@@ -1,4 +1,4 @@
-services:            
+services:
     main.event.user_registration:
         class: DBiagi\MainBundle\EventListener\UserRegistrationListener
         tags:
@@ -9,8 +9,3 @@ services:
         factory: ['@doctrine.orm.entity_manager', getRepository]
         arguments:
             - DBiagi\MainBundle\Entity\Animation
-            
-    faker:
-        class: Faker\Generator
-        factory: [Faker\Factory, create]
-        arguments: ["%locale%"]
