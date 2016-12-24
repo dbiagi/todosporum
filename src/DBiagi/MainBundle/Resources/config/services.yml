@@ -1,9 +1,15 @@
 services:
-    main.event.user_registration:
-        class: DBiagi\MainBundle\EventListener\UserRegistrationListener
+    main.registration_subscriber:
+        class: DBiagi\MainBundle\EventSubscriber\UserRegistrationSubscriber
         tags:
             - { name: kernel.event_subscriber }
-    
+
+    main.reset_subscriber:
+        class: DBiagi\MainBundle\EventSubscriber\PasswordResetSubscriber
+        arguments: ["@router", "%fos_user.resetting.token_ttl%"]
+            tags:
+                - { name: kernel.event_subscriber }
+
     main.animation_repository:
         class: Doctrine\ORM\EntityRepository
         factory: ['@doctrine.orm.entity_manager', getRepository]

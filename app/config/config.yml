@@ -68,18 +68,30 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
-    #host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+
 fos_user:
+    service:
+        mailer: fos_user.mailer.twig_swift
     db_driver: orm
     firewall_name: main
     user_class: DBiagi\MainBundle\Entity\User
     registration:
         form:
             type: DBiagi\MainBundle\Form\RegistrationType
+        confirmation:
+            from_email:
+                address: "%from_email%"
+                sender_name: "%from_name%"
+    resetting:
+        email:
+            template: FOSUserBundle:Resetting:email.html.twig
+            from_email:
+                address: "%from_email%"
+                sender_name: "%from_name%"
 
 monolog:
     channels: [app, user, editor]
