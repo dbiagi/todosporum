@@ -1,11 +1,11 @@
-@font-face { 
+@font-face {
     font-family: 'kaushan_scriptregular';
     src: url('/fonts/kaushanscript-regular-webfont.eot');
     src: url('/fonts/kaushanscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/kaushanscript-regular-webfont.woff2') format('woff2'),
-        url('/fonts/kaushanscript-regular-webfont.woff') format('woff'),
-        url('/fonts/kaushanscript-regular-webfont.ttf') format('truetype'),
-        url('/fonts/kaushanscript-regular-webfont.svg#kaushan_scriptregular') format('svg');
+    url('/fonts/kaushanscript-regular-webfont.woff2') format('woff2'),
+    url('/fonts/kaushanscript-regular-webfont.woff') format('woff'),
+    url('/fonts/kaushanscript-regular-webfont.ttf') format('truetype'),
+    url('/fonts/kaushanscript-regular-webfont.svg#kaushan_scriptregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -20,21 +20,25 @@ body {
 h1 {
     margin: 15px;
 }
+
 h1,
 h1 a,
 h1 img {
     display: inline-block;
     width: 300px;
 }
+
 header {
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 1;
 }
+
 section, section.container {
     margin-bottom: 40px;
 }
+
 #fitarosa {
     position: fixed;
     background: url(/img/fitarosa.png);
@@ -48,6 +52,7 @@ section, section.container {
     margin-top: -100px;
     opacity: 0.3;
 }
+
 #fitaazul {
     position: fixed;
     background: url(/img/fitaazul.png);
@@ -59,6 +64,7 @@ section, section.container {
     z-index: -1;
     opacity: 0.3;
 }
+
 #fitaverde {
     position: fixed;
     background: url(/img/fitaverde.png);
@@ -69,25 +75,25 @@ section, section.container {
     z-index: -1;
     opacity: 0.3;
 }
-.center {
-    text-align: center;
-}
 
 .clear:after {
     content: "";
     display: block;
     clear: both;
 }
+
 .banner-home img {
     max-width: 100%;
     margin-top: -100px;
 }
+
 .videoWrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     padding-top: 25px;
     height: 0;
 }
+
 .videoWrapper iframe {
     position: absolute;
     top: 0;
@@ -95,28 +101,34 @@ section, section.container {
     width: 100%;
     height: 100%;
 }
+
 .center {
     text-align: center;
 }
+
 .videoWrapper.relatorio {
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 20px;
 }
+
 ul.lista {
     margin-bottom: 15px;
 }
-.btn {
+
+.btn-custom {
     padding: 15px 30px;
     display: inline-block;
     border: 0;
     width: auto;
 }
+
 .btn-mini {
     padding: 5px 7px;
     border: 0;
     width: auto;
 }
+
 /* Menu */
 
 .menu {
@@ -128,6 +140,7 @@ ul.lista {
     list-style: none;
     position: relative;
 }
+
 .menu li a {
     padding: 20px 30px;
     display: block;
@@ -141,6 +154,7 @@ ul.lista {
     background: #fff;
     border: 1px solid #bbb;
 }
+
 .submenu:before {
     content: "";
     position: absolute;
@@ -153,6 +167,7 @@ ul.lista {
     left: 40%;
     margin-right: -15px;
 }
+
 .submenu:after {
     content: "";
     position: absolute;
@@ -165,12 +180,15 @@ ul.lista {
     left: 50%;
     margin-left: -21px;
 }
-.menu li:hover .submenu{
+
+.menu li:hover .submenu {
     display: block;
 }
+
 #btnapp {
     border-radius: 0 0 0 20px;
 }
+
 #user {
     position: absolute;
     right: 0;
@@ -180,7 +198,7 @@ ul.lista {
 
 /* Galeria */
 
-#galeria, .galeria  {
+#galeria, .galeria {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -193,24 +211,36 @@ ul.lista {
     box-sizing: border-box;
     position: relative;
 }
-.galeriaModal .logo-sketch,.galeriaModal .layout { width: 20%;}
-.galeriaModal .logo-final, .galeriaModal .paudefitas {	width: 33%; }
+
+.galeriaModal .logo-sketch, .galeriaModal .layout {
+    width: 20%;
+}
+
+.galeriaModal .logo-final, .galeriaModal .paudefitas {
+    width: 33%;
+}
+
 #galeria li img, .galeria li img, .galeriaModal img {
     max-width: 100%;
 }
+
 #busca {
     float: right;
     margin-top: -5px;
 }
+
 #busca a {
     font-size: 15px;
 }
+
 #busca input {
     width: auto;
 }
+
 .paginacao {
     text-align: center;
 }
+
 .paginacao li {
     display: inline-block;
     padding: 0 10px;
@@ -223,30 +253,37 @@ ul.lista {
     margin-left: -70px;
     display: none;
 }
+
 #progress li a:first-child {
     margin-left: -64px;
     margin-top: -40px;
 }
+
 #progress li:hover a {
     display: block;
 }
+
 .fancybox-title-inside-wrap {
     padding: 4px 10px;
     margin-bottom: 5px;
 }
+
 .fancybox-opened .fancybox-title {
     visibility: visible;
     background: #ccc;
     text-align: center;
 }
+
 /* Contato */
 .container .metade {
     width: 50%;
     float: left;
 }
+
 .perfil {
     margin-bottom: 20px;
 }
+
 .foto {
     width: 120px;
     height: 120px;
@@ -255,10 +292,12 @@ ul.lista {
     margin-right: 20px;
     overflow: hidden;
 }
+
 .infos a.fa {
     font-size: 33px;
     margin-right: 15px;
 }
+
 /* login */
 form.login {
     max-width: 300px;
@@ -268,21 +307,25 @@ form.login {
 input.error {
     background: #FFD5D5;
 }
+
 label.error {
     color: #F00;
     margin: -19px 0 19px;
     display: block;
 }
+
 /* Footer */
 footer {
     text-align: center;
     padding: 15px 10px;
     background: #4B4B4B;
 }
+
 footer a, footer p, footer span {
     color: #fff;
     font-size: 11px;
 }
+
 footer a.termos {
     font-size: 13px;
     margin-bottom: 10px;
@@ -290,7 +333,7 @@ footer a.termos {
 }
 
 /* Formatação */
-a{
+a {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
@@ -301,51 +344,65 @@ h2, h3, h4, h5 {
     margin-bottom: 10px;
     font-family: 'kaushan_scriptregular';
 }
+
 h2 {
     font-size: 40px;
 }
+
 h3 {
     font-size: 27px;
 }
+
 h4 {
     font-size: 22px;
 }
+
 h5 {
     font-size: 18px;
 }
+
 p, quote {
     margin-bottom: 15px;
     font-size: 14px
 }
+
 h6 {
     font-size: 12px;
 }
+
 .rs, .rs:hover {
     color: #FF2C62;
 }
+
 .az, .az:hover {
     color: #3E458E;
 }
+
 .vd, .vd:hover {
     color: #00BF92;
 }
+
 .am, .am:hover {
-    color: #FFB600;	
+    color: #FFB600;
 }
+
 .bg_rs, .bg_rs:hover {
     background: #FF2C62;
     color: #fff;
 }
+
 .bg_az, .bg_az:hover {
     background: #3E458E;
     color: #fff;
 }
+
 .bg_vd, .bg_vd:hover {
     background: #00BF92;
     color: #fff;
 }
+
 .bg_am, .bg_am:hover {
-    background: #FFB600;	
+    background: #FFB600;
     color: #fff;
 }
 
@@ -354,10 +411,17 @@ quote {
     font-style: italic;
     display: block;
 }
+
 quote i {
     font-style: normal;
 }
 
-div.title{
+div.title {
     margin-bottom: 40px;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }

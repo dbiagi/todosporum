@@ -1,16 +1,7 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
-
 # Cache and logs (Symfony3)
 /var/cache/*
 /var/logs/*
 /var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
 
 # Parameters
 /app/config/parameters.yml
@@ -27,6 +18,7 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
+/web/js/*
 
 # PHPUnit
 /app/phpunit.xml
@@ -38,18 +30,16 @@
 # Composer PHAR
 /composer.phar
 
-# Netbeans Folder
-/nbproject/
-
 # js e css libs
 /web/libs/
 
 # Upload
 /web/upload/
-/src/DBiagi/CarBundle/
 /node_modules/
 
-# Eclipse projet files
+# IDE's folders
 .buildpath
 .project
 .settings
+/.idea/
+/nbproject/

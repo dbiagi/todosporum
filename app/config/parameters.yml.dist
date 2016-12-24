@@ -23,3 +23,6 @@ parameters:
     admin_pass: admin
     admin_name: Diego de Biagi
     admin_email: diegobiagiviana@gmail.com
+
+    from_email: no-reply@todosporum.com
+    from_name: Todos Por Um

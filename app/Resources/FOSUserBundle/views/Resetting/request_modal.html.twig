@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
+        <div id="reset-modal" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4>Redefinir senha</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input class="form-control" type="email" id="username" name="username" required="required" placeholder="{{ 'resetting.request.username'|trans }}"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

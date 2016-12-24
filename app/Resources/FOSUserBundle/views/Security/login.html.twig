@@ -2,33 +2,35 @@
 
 {% block content %}
     <section class="container">
-        <div class="row col-sm-offset-3 title">
+        <div class="row col-md-offset-3 title">
             <h2 class="az">Faça login para continuar</h2>
         </div>
+
         {% if error.message is defined %}
             <div class="col-md-offset-3 text-danger">
                 <p>{{ error.message|trans }}</p>
             </div>
         {% endif %}
+
         <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
             <div class="row form-group">
-                <label class="col-sm-3 col-lg-3 col-md-3 col-xs-3 control-label" for="username">Email</label>
-                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                <label class="col-md-3 control-label" for="username">Email</label>
+                <div class="col-md-5">
                     <input class="form-control" type="email" id="username" name="_username" value="{{ last_username }}" required="required"/>
                 </div>
             </div>
 
             <div class="row form-group">
-                <label class="col-sm-3 col-lg-3 col-md-3 col-xs-3 control-label" for="password">Senha: </label>
-                <div class="col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <input class="form-control col-lg-6" type="password" id="password" name="_password" required="required"/>
+                <label class="col-md-3 control-label" for="password">Senha: </label>
+                <div class="col-md-5">
+                    <input class="form-control " type="password" id="password" name="_password" required="required"/>
                 </div>
             </div>
 
             <div class="row form-group">
-                <div class="checkbox col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
+                <div class="checkbox col-md-offset-3  col-md-5">
                     <label>
                         <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                         Mantenha-me conectado
@@ -37,17 +39,23 @@
             </div>
 
             <div class="row form-group">
-                <div class="col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <input class="btn bg_rs" type="submit" id="_submit" name="_submit" value="Entrar"/>
+                <div class="col-md-offset-3  col-md-5">
+                    <input class="btn-custom bg_rs" type="submit" id="_submit" name="_submit" value="Entrar"/>
                 </div>
             </div>
 
             <div class="row form-group">
-                <div class="col-sm-offset-3 col-sm-5 col-lg-5 col-md-5 col-xs-5">
-                    <a href="{{ path('fos_user_registration_register') }}" class="btn bg_am btn-mini">Ainda não sou cadastrado</a>
+                <div class="col-md-offset-3  col-md-3">
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn-custom bg_am btn-mini">Ainda não sou cadastrado</a>
+                </div>
+
+                <div class="col-md-4">
+                    <button type="button" data-toggle="modal" data-target="#reset-modal">Esqueci minha senha</button>
                 </div>
             </div>
         </form>
     </section>
+
+    {% include 'FOSUserBundle:Resetting:request_modal.html.twig' %}
 {% endblock %}
 

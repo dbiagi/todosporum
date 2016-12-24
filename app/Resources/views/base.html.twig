@@ -27,9 +27,9 @@
         {% block body %} {% endblock %}
 
         {% block javascripts %}
-            <script src="{{ asset('/js/jquery.fancybox.js') }}"></script>
             <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
-            <script src="{{ asset('/js/script.js') }}"></script>
+            <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('/js/build.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>
