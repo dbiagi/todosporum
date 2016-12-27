@@ -67,10 +67,10 @@ class PasswordResetSubscriber implements EventSubscriberInterface {
     }
 
     /**
-     * @TODO Terminar de fazer isso aqui.
+     * Redireciona para home em caso de sucesso.
      * @param FormEvent $event
      */
     public function onResetSuccess(FormEvent $event) {
-        $event->getRequest()->getFlashBag();
+        $event->setResponse(new RedirectResponse($this->router->generate('main_home')));
     }
 }

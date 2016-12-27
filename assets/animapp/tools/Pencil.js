@@ -1,35 +1,18 @@
 /**
  *
- * @param {Object} canvasDiv
+ * @param {fabric.Canvas} canvas
  * @constructor
  */
-Animapp.Tool.Pencil = function (canvasDiv) {
-    var _self = this,
-        _div = canvasDiv,
-        _name = 'pencil',
-        _isMouseDown = false,
-        _points = []
+Animapp.Tool.Pencil = function (canvas, el) {
+    var _self = this
 
     this.active = function () {
-        console.log('ativado')
+        canvas.isDrawingMode = true
+        canvas.freeDrawingBrush.color = canvas.color
+    }
 
-        _div.on('mousedown', function(){
-            _isMouseDown = true
-            _self.trigger('start')
-        })
-
-        _div.on('mouseup', function(){
-            _isMouseDown = false
-            _self.trigger('finish', data)
-        })
-
-        _div.on('mousemove', function(e){
-            _points.push = {
-                x: e.pageX,
-                y: e.pageY
-            }
-
-        })
+    this.deactive = function(){
+        canvas.isDrawingMode = false
     }
 
 }

@@ -1,16 +1,10 @@
 Animapp.Tool.Base = function () {
-    var _name = null
-
-    Object.defineProperties(this, {
-        name: {
-            get: function () {
-                return _name
-            }
-        }
-    })
-
     this.active = function () {
         throw 'not implemented'
+    }
+
+    this.deactive = function(){
+        throw 'not  implemented'
     }
 }
 
