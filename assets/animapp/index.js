@@ -1,7 +1,7 @@
 var Animapp = {}
 Animapp.Tool = {}
 
-$(function(){
+$(function () {
     var app = new Animapp.Editor($('#animapp'), $('#ferramentas'))
 
     app.initialize()

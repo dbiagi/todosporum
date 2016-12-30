@@ -13,31 +13,57 @@ Animapp.Editor = function (div, toolbox) {
     var createCanvas = function () {
         var el = $('<canvas>', {
             attr: {
-                id: 'animapp-canvas',
-                width: div.innerWidth(),
-                height: div.innerHeight(),
+                id:           'animapp-canvas',
+                width:        div.innerWidth(),
+                height:       div.innerHeight(),
                 'data-color': 'black'
             }
         })
 
         el.appendTo(div)
 
-        canvas = new fabric.Canvas('animapp-canvas')
+        canvas = new fabric.Canvas('animapp-canvas', {
+            selection: false
+        })
         canvas.color = '#000'
         canvas.freeDrawingBrush.color = canvas.color
         canvas.freeDrawingBrush.width = 5
-        canvas.centeredScaling = true
-        window.canvas = canvas
 
+        // Deixa o objeto canvas disponível globalmente para fins de debug somente
+        window.canvas = canvas
+    }
+
+    var registerEvents = function () {
+        resizeEvents()
+        toolboxEvents()
+        keyboardEvents()
+        refreshLoop()
+    }
+
+    var refreshLoop = function () {
+        canvas.renderAll()
+        window.requestAnimationFrame(refreshLoop)
+    }
+
+    var resizeEvents = function () {
         $(window).on('resize', function () {
             canvas
                 .setWidth(div.innerWidth())
                 .setHeight(div.innerHeight())
         })
-
     }
 
-    var registerEvents = function () {
+    var keyboardEvents = function () {
+        $(window).on('keydown', function (e) {
+            var obj = canvas.getActiveObject()
+
+            if (e.which === 46 && obj !== null) {
+                obj.remove()
+            }
+        })
+    }
+
+    var toolboxEvents = function () {
         toolbox.find('[data-tool]').on('click', function () {
             var selectedTool = $(this).data('tool')
 
@@ -62,30 +88,19 @@ Animapp.Editor = function (div, toolbox) {
             // Seleciona a ferramenta clicada
             $(this).addClass('selected')
         })
-
-        canvas.on('mouse:down', function () {
-            mouseIsDown = true
-        })
-        canvas.on('mouse:move', function () {
-            if (mouseIsDown) {
-                canvas.renderAll()
-            }
-        })
-        canvas.on('mouse:up', function () {
-            mouseIsDown = false
-        })
     }
 
     var setupTools = function () {
         tools = {
             pencil: new Animapp.Tool.Pencil(canvas, $('[data-tool="pencil"]')),
-            color: new Animapp.Tool.Color(canvas, $('[data-tool="color"]')),
-            line: new Animapp.Tool.Line(canvas, $('[data-tool="line"]')),
-            rect: new Animapp.Tool.Rect(canvas, $('[data-tool="rect"]')),
-            round: new Animapp.Tool.Round(canvas, $('[data-tool="round"]')),
-            file: new Animapp.Tool.File(canvas, $('[data-tool="file"]')),
+            color:  new Animapp.Tool.Color(canvas, $('[data-tool="color"]')),
+            line:   new Animapp.Tool.Line(canvas, $('[data-tool="line"]')),
+            rect:   new Animapp.Tool.Rect(canvas, $('[data-tool="rect"]')),
+            circle: new Animapp.Tool.Circle(canvas, $('[data-tool="circle"]')),
+            file:   new Animapp.Tool.File(canvas, $('[data-tool="file"]')),
             eraser: new Animapp.Tool.Eraser(canvas, $('[data-tool="eraser"]')),
-            move: new Animapp.Tool.Move(canvas, $('[data-tool="move"]'))
+            move:   new Animapp.Tool.Move(canvas, $('[data-tool="move"]')),
+            bucket: new Animapp.Tool.Bucket(canvas, $('[data-tool="bucket"]'))
         }
     }
 

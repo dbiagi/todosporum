@@ -3,27 +3,17 @@
  * @param {fabric.Canvas} canvas
  * @constructor
  */
-Animapp.Tool.Rect = function (canvas, el) {
+Animapp.Tool.Circle = function (canvas, el) {
     var _self = this,
-        currentRect = null,
-        defaultWidth = 20,
-        defaultHeight = 20
+        currentRound = null,
+        defaultRadius = 20
 
-    /**
-     * Cria um retângulo.
-     * @param {Number} w Comprimento.
-     * @param {Number} h Altura.
-     * @param {Number} l Posição em relação a esquerda.
-     * @param {Number} t Posição em relação ao topo.
-     * @returns {fabric.Rect}
-     */
-    var createRect = function (w, h, t, l) {
-        return new fabric.Rect({
-            width:      w,
-            height:     h,
-            top:        t,
-            left:       l,
-            fill:       canvas.color,
+    var createRound = function(r, t, l){
+        return new fabric.Circle({
+            radius: r,
+            top: t,
+            left: l,
+            fill: canvas.color,
             selectable: false
         })
     }
@@ -33,31 +23,30 @@ Animapp.Tool.Rect = function (canvas, el) {
 
         var pointer = canvas.getPointer(event)
 
-        currentRect = createRect(
-            defaultWidth,
-            defaultHeight,
+        currentRound = createRound(
+            defaultRadius,
             pointer.y,
             pointer.x
         )
 
-        canvas.add(currentRect)
+        canvas.add(currentRound)
     }
 
     var mouseMove = function (e) {
-        if (currentRect === null) {
+        if (currentRound === null) {
             return
         }
 
         var event = e.e
 
-        currentRect
+        currentRound
             .set('top', event.layerX)
             .set('left', event.layerY)
             .setCoords()
     }
 
     var mouseUp = function () {
-        currentRect = null
+        currentRound = null
     }
 
     var registerEvents = function () {
@@ -82,4 +71,4 @@ Animapp.Tool.Rect = function (canvas, el) {
 
 }
 
-Animapp.Tool.Rect.prototype = new Animapp.Tool.Base()
+Animapp.Tool.Circle.prototype = new Animapp.Tool.Base()

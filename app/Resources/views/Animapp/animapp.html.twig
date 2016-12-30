@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %} 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animapp.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}">
 {% endblock %}
 
-{% block javascripts %} 
+{% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('libs/eventEmitter/EventEmitter.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('libs/fabric.js/dist/fabric.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/animapp.min.js') }}"></script>
 {% endblock %}
 
-{% block body %} 
+{% block body %}
     <div class="containerApp">
         <div id="ferramentas">
             <ul>
@@ -21,20 +23,34 @@
                 <li><a data-tool="eraser" class="icon-borracha tool" title="Borracha"></a></li>
                 <li><a data-tool="line" class="icon-linha tool" title="Linha"></a></li>
                 <li><a data-tool="rect" class="icon-retangulo tool" title="Retângulo"></a></li>
-                <li><a data-tool="round" class="icon-elipse tool" title="Elipse"></a></li>
+                <li><a data-tool="circle" class="icon-elipse tool" title="Elipse"></a></li>
                 <li><a data-tool="move" class="icon-mover tool" title="Mover"></a></li>
-                {#<li><a data-tool="resize" class="icon-redimensionar tool" title="Redimensionar"></a></li>
-                <li><a data-tool="bucket" class="icon-balde tool" title="Lata de tinta"></a></li>#}
-                <li><a data-tool="file" class="icon-anexar tool" title="Adicionar arquivo"></a></li>
+                {#<li><a data-tool="resize" class="icon-redimensionar tool" title="Redimensionar"></a></li>#}
+                <li><a data-tool="bucket" class="icon-balde tool" title="Lata de tinta"></a></li>
+                <li><a data-tool="file" class="icon-anexar tool" title="Adicionar imagem"></a></li>
                 <li><a data-tool="color" class="icon-cor tool" title="Cor"></a></li>
             </ul>
         </div>
         <div id="acoes">
-            <ul>
+            <div class="row">
+                <div class="col-md-3">
+                    <p><i class="fa fa-clock-o"></i> <span>Tempo</span></p>
+                </div>
+                <div class="col-md-4">
+                    <input id="time-start" class="form-control" type="number" placeholder="Início">
+                </div>
+                <div class="col-md-4">
+                    <input id="time-end" class="form-control" type="number" placeholder="Fim">
+                </div>
+            </div>
+
+            {#<ul>
                 <li>
-                    <a href=""><em class="aberto"></em> Mover</a>
+                    <a href=""><em class=""></em> Mover</a>
                     <ul class="aberto">
-                        <li><span class="icon-tempo"></span><input type="text">/<input type="text"></li>
+                        <li>
+                            <span class="icon-tempo"></span>&nbsp;<input type="text"> / <input type="text"33>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -43,17 +59,17 @@
                         <li><span class="icon-tempo"></span><input type="text">/<input type="text"></li>
                     </ul>
                 </li>
-            </ul>
+            </ul>#}
         </div>
         <div id="principal">
             <div id="barra-topo">
                 <div id="timer">00:00</div>
                 <ul>
-                    <li><a class="icon-desfazer" title="Desfazer" ></a></li>
-                    <li><a class="icon-refazer" title="Refazer" ></a></li>
-                    <li><a class="icon-ok" title="Finalizar" ></a></li>
+                    <li><a class="icon-desfazer" title="Desfazer"></a></li>
+                    <li><a class="icon-refazer" title="Refazer"></a></li>
+                    <li><a class="icon-ok" title="Finalizar"></a></li>
                     <li><a href="{{ path('main_animapp') }}" class="icon-fechar" title="Sair do App"></a></li>
-                </ul>    
+                </ul>
             </div>
             <div id="animapp"></div>
         </div>

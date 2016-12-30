@@ -3,12 +3,13 @@
  * @param {fabric.Canvas} canvas
  * @constructor
  */
-Animapp.Tool.Eraser = function (canvas, el) {
+Animapp.Tool.Bucket = function (canvas, el) {
     var _self = this
 
     var mouseDown = function(e){
         if(e.target !== null){
-            e.target.remove()
+            e.target.setColor(canvas.color)
+            e.target.setStroke(canvas.color)
         }
     }
 
@@ -30,4 +31,4 @@ Animapp.Tool.Eraser = function (canvas, el) {
 
 }
 
-Animapp.Tool.Eraser.prototype = new Animapp.Tool.Base()
+Animapp.Tool.Bucket.prototype = new Animapp.Tool.Base()

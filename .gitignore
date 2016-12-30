@@ -43,3 +43,6 @@
 .settings
 /.idea/
 /nbproject/
+
+# Outros repositórios dentro desse projeto
+/src/Lexik

@@ -7,11 +7,17 @@ Animapp.Tool.Move = function (canvas, el) {
     var _self = this
 
     this.active = function () {
-        _canvas.isDrawingMode = false
+        canvas.isDrawingMode = false
+
+        canvas.getObjects().map(function (obj) {
+            obj.selectable = true
+        })
     }
 
-    this.deactive = function(){
-
+    this.deactive = function () {
+        canvas.getObjects().map(function (obj) {
+            obj.selectable = false
+        })
     }
 
 }

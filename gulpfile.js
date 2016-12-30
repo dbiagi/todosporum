@@ -24,8 +24,21 @@ gulp.task('concat:animapp', function () {
         .pipe(gulp.dest('web/js'))
 })
 
+gulp.task('concat:animapp:dev', function () {
+    return gulp.src(animappSrc)
+        .pipe($.concat('animapp.min.js'))
+        .pipe(gulp.dest('web/js'))
+})
+
 gulp.task('watch', function () {
     gulp.watch([].concat(src, animappSrc), ['concat'])
+        .on('change', function (event) {
+            log('File: ' + event.path + ' has been ' + event.type)
+        })
+})
+
+gulp.task('watch:dev', function () {
+    gulp.watch([].concat(src, animappSrc), ['concat:animapp:dev'])
         .on('change', function (event) {
             log('File: ' + event.path + ' has been ' + event.type)
         })

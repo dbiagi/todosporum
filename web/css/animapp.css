@@ -70,7 +70,7 @@ body {
 }
 
 #acoes {
-    width: 30%;
+    width: 25%;
     padding: 20px 20px 82px 75px;
     float: left;
     box-sizing: border-box;
@@ -79,9 +79,34 @@ body {
     background: #707070;
 }
 
+#acoes > div.row {
+    margin-left: 10px;
+}
+
+#acoes > p {
+    padding-top:20%;
+}
+
 #acoes ul {
     margin-left: 24px;
     list-style: none;
+}
+
+#acoes em.fechado {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent #000000;
+    display: inline-block;
+}
+
+#acoes ul.fechado {
+    display: none;
+}
+
+#acoes ul.aberto {
+    display: block;
 }
 
 #principal {
@@ -150,13 +175,6 @@ a.icon-fechar, .icon-fechar:hover {
     display: inline-block;
 }
 
-#acoes input, #acoes input:focus {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    width: 63px;
-}
-
 #acoes em.aberto {
     width: 0px;
     height: 0px;
@@ -164,23 +182,6 @@ a.icon-fechar, .icon-fechar:hover {
     border-width: 8px 5px 0 5px;
     border-color: #000000 transparent transparent transparent;
     display: inline-block;
-}
-
-#acoes em.fechado {
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 5px 0 5px 8px;
-    border-color: transparent transparent transparent #000000;
-    display: inline-block;
-}
-
-#acoes ul.fechado {
-    display: none;
-}
-
-#acoes ul.aberto {
-    display: block;
 }
 
 /* TOOLBOX */

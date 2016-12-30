@@ -6,8 +6,8 @@
 Animapp.Tool.Color = function (canvas, el) {
     var self = this,
         colorInput = $('<input>', {
-            type: 'color',
-            id: 'color-picker',
+            type:  'color',
+            id:    'color-picker',
             style: 'display: none'
         })
 
@@ -19,7 +19,7 @@ Animapp.Tool.Color = function (canvas, el) {
         canvas.color = currentColor
     }
 
-    var onClick = function(){
+    var onClick = function () {
         colorInput.click()
     }
 

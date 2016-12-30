@@ -1,9 +1,15 @@
 Animapp.Tool.Base = function () {
+    /**
+     * Ativa a ferramenta.
+     */
     this.active = function () {
         throw 'not implemented'
     }
 
-    this.deactive = function(){
+    /**
+     * Desativa a ferramenta.
+     */
+    this.deactive = function () {
         throw 'not  implemented'
     }
 }

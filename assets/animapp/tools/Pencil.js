@@ -11,7 +11,7 @@ Animapp.Tool.Pencil = function (canvas, el) {
         canvas.freeDrawingBrush.color = canvas.color
     }
 
-    this.deactive = function(){
+    this.deactive = function () {
         canvas.isDrawingMode = false
     }
 

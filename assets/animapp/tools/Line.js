@@ -8,49 +8,78 @@ Animapp.Tool.Line = function (canvas, el) {
         strokeWidth = 10,
         currentLine = null
 
-    var mouseDown = function(e){
-        var currentLine = createLine([
+    var mouseDown = function (e) {
+        var event = e.e,
+            x = event.layerX,
+            y = event.layerY
 
-        ])
+        currentLine = createLine([x,y,x,y])
 
         canvas.add(currentLine)
     }
 
-    var mouseUp = function(){
+    var mouseUp = function () {
         currentLine = null
     }
 
-    var mouseMove = function(e){
+    var mouseMove = function (e) {
+        if(currentLine === null){
+            return
+        }
 
+        var event = e.e
 
-
+        currentLine
+            .set('x2', event.layerX)
+            .set('y2', event.layerY)
+            .setCoords()
     }
 
-    var createLine = function(coords){
+    /**
+     * Cria linha.
+     * @param {Array} coords
+     * @returns {fabric.Line}
+     */
+    var createLine = function (coords) {
         return new fabric.Line(coords, {
-            fill: canvas.color,
-            stroke: canvas.color,
-            strokeWidth: strokeWidth
+            fill:        canvas.color,
+            stroke:      canvas.color,
+            strokeWidth: strokeWidth,
+            selectable: false
         })
     }
 
-    var registerEvents = function(){
+    window.createLine = createLine
+
+    /**
+     * Registra eventos.
+     */
+    var registerEvents = function () {
         canvas.on('mouse:down', mouseDown)
         canvas.on('mouse:up', mouseUp)
         canvas.on('mouse:move', mouseMove)
     }
 
-    var unregisterEvents = function(){
+    /**
+     * Remove eventos.
+     */
+    var unregisterEvents = function () {
         canvas.off('mouse:down', mouseDown)
         canvas.off('mouse:up', mouseUp)
         canvas.off('mouse:move', mouseMove)
     }
 
+    /**
+     * {@inheritDoc}
+     */
     this.active = function () {
         registerEvents()
     }
 
-    this.deactive = function(){
+    /**
+     * {@inheritDoc}
+     */
+    this.deactive = function () {
         unregisterEvents()
     }
 
