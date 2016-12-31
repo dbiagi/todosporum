@@ -80,7 +80,11 @@ body {
 }
 
 #acoes > div.row {
-    margin-left: 10px;
+    margin: 25px 0 0 10px;
+}
+
+#acoes > div.row > span {
+    padding-top: 15%;
 }
 
 #acoes > p {
@@ -191,4 +195,16 @@ a:hover.tool {
 
 a.tool.selected {
     color: #1ebe93;
+}
+
+fa-1 {
+    font-size: 12px;
+}
+
+fa-2 {
+    font-size: 28px;
+}
+
+fa-3 {
+    font-size: 32px;
 }

@@ -33,8 +33,8 @@
         </div>
         <div id="acoes">
             <div class="row">
-                <div class="col-md-3">
-                    <p><i class="fa fa-clock-o"></i> <span>Tempo</span></p>
+                <div class="col-md-4">
+                    <label for="time-start"><i class="fa fa-clock-o fa-2x"></i>&nbsp;<span>Tempo</span></label>
                 </div>
                 <div class="col-md-4">
                     <input id="time-start" class="form-control" type="number" placeholder="Início">
@@ -43,23 +43,22 @@
                     <input id="time-end" class="form-control" type="number" placeholder="Fim">
                 </div>
             </div>
-
-            {#<ul>
-                <li>
-                    <a href=""><em class=""></em> Mover</a>
-                    <ul class="aberto">
-                        <li>
-                            <span class="icon-tempo"></span>&nbsp;<input type="text"> / <input type="text"33>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href=""><em class="aberto"></em> Redimensionar</a>
-                    <ul class="aberto">
-                        <li><span class="icon-tempo"></span><input type="text">/<input type="text"></li>
-                    </ul>
-                </li>
-            </ul>#}
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="looping"><i class="fa fa-undo fa-2x"></i>&nbsp;<span>Looping</span></label>
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" id="looping" value="1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="animate"><i class="fa fa-stop-circle fa-2x"></i>&nbsp;<span>Animar</span></label>
+                </div>
+                <div class="col-md-4">
+                    <input type="checkbox" id="animate" value="1">
+                </div>
+            </div>
         </div>
         <div id="principal">
             <div id="barra-topo">
