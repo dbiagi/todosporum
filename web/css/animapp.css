@@ -88,7 +88,7 @@ body {
 }
 
 #acoes > p {
-    padding-top:20%;
+    padding-top: 20%;
 }
 
 #acoes ul {
@@ -103,6 +103,18 @@ body {
     border-width: 5px 0 5px 8px;
     border-color: transparent transparent transparent #000000;
     display: inline-block;
+}
+
+#acoes input[type="checkbox"] + label.record {
+    cursor: pointer;
+}
+
+#acoes input[type="checkbox"]:checked + label.record {
+    color: #1ebe93;
+}
+
+#acoes input[type="checkbox"] + label.record {
+    color: black;
 }
 
 #acoes ul.fechado {
