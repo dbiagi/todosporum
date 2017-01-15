@@ -6,8 +6,9 @@
 Animapp.Tool.Rect = function (canvas, el) {
     var _self = this,
         currentRect = null,
-        defaultWidth = 20,
-        defaultHeight = 20
+        defaultWidth = 50,
+        defaultHeight = 50,
+        defaultDashArray = [1, 0, 12]
 
     /**
      * Cria um retângulo.
@@ -19,12 +20,14 @@ Animapp.Tool.Rect = function (canvas, el) {
      */
     var createRect = function (w, h, t, l) {
         return new fabric.Rect({
-            width:      w,
-            height:     h,
-            top:        t,
-            left:       l,
-            fill:       canvas.color,
-            selectable: false
+            top:             t - h,
+            left:            l - w,
+            fill:            canvas.color,
+            selectable:      false,
+            strokeDashArray: defaultDashArray,
+            fill:            null,
+            stroke:          canvas.color,
+            strokeWidth:     5
         })
     }
 
@@ -48,22 +51,42 @@ Animapp.Tool.Rect = function (canvas, el) {
             return
         }
 
-        var event = e.e
+        var pointer = canvas.getPointer(e.e)
 
-        currentRect
-            .set('top', event.layerX)
-            .set('left', event.layerY)
-            .setCoords()
+        var newWidth = Math.abs(pointer.x - currentRect.left)
+        var newHeight = Math.abs(pointer.y - currentRect.top)
+
+        currentRect.set({
+            width: newWidth,
+            height: newHeight
+        })
+
+        if (currentRect.left > pointer.x) {
+            currentRect.set({originX: 'right'});
+        } else {
+            currentRect.set({originX: 'left'});
+        }
+
+        if (currentRect.top > pointer.y) {
+            currentRect.set({originY: 'bottom'});
+        } else {
+            currentRect.set({originY: 'top'});
+        }
     }
 
     var mouseUp = function () {
+        currentRect.set({
+            fill: canvas.color,
+            strokeDashArray: null
+        })
+        currentRect.setCoords()
         currentRect = null
     }
 
     var registerEvents = function () {
         canvas.on('mouse:down', mouseDown)
-        /*.on('mouse:up', mouseUp)
-         .on('mouse:move', mouseMove)*/
+            .on('mouse:up', mouseUp)
+            .on('mouse:move', mouseMove)
     }
 
     var unregisterEvents = function () {
@@ -72,11 +95,11 @@ Animapp.Tool.Rect = function (canvas, el) {
             .off('mouse:move', mouseMove)
     }
 
-    this.active = function () {
+    this.activate = function () {
         registerEvents()
     }
 
-    this.deactive = function () {
+    this.deactivate = function () {
         unregisterEvents()
     }
 

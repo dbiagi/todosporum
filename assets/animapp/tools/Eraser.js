@@ -20,11 +20,11 @@ Animapp.Tool.Eraser = function (canvas, el) {
         canvas.off('mouse:down', mouseDown)
     }
 
-    this.active = function () {
+    this.activate = function () {
         registerEvents()
     }
 
-    this.deactive = function () {
+    this.deactivate = function () {
         unregisterEvents()
     }
 

@@ -26,11 +26,11 @@ Animapp.Tool.Color = function (canvas, el) {
     el.on('click', onClick)
     colorInput.on('change', colorChanged)
 
-    this.active = function () {
+    this.activate = function () {
         return false
     }
 
-    this.deactive = function () {
+    this.deactivate = function () {
         return false
     }
 

@@ -105,15 +105,15 @@ body {
     display: inline-block;
 }
 
-#acoes input[type="checkbox"] + label.record {
+#acoes input[type="checkbox"] + label {
     cursor: pointer;
 }
 
-#acoes input[type="checkbox"]:checked + label.record {
+#acoes input[type="checkbox"]:checked + label {
     color: #1ebe93;
 }
 
-#acoes input[type="checkbox"] + label.record {
+#acoes input[type="checkbox"] + label {
     color: black;
 }
 

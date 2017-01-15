@@ -72,14 +72,14 @@ Animapp.Tool.Line = function (canvas, el) {
     /**
      * {@inheritDoc}
      */
-    this.active = function () {
+    this.activate = function () {
         registerEvents()
     }
 
     /**
      * {@inheritDoc}
      */
-    this.deactive = function () {
+    this.deactivate = function () {
         unregisterEvents()
     }
 

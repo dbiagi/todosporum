@@ -5,10 +5,17 @@
  * @constructor
  */
 Animapp.Editor = function (div, toolbox) {
-    var canvas = null,
-        currentTool = null,
-        tools = {},
-        mouseIsDown = false
+    /** @type {fabric.Canvas} */
+    var canvas = null
+
+    /** @type {fabric.Object} */
+    var currentTool = null
+
+    /** @type {Object} */
+    var tools = {}
+
+    /** @type {Animapp.Recorder} */
+    var recorder = null
 
     var createCanvas = function () {
         var el = $('<canvas>', {
@@ -33,11 +40,39 @@ Animapp.Editor = function (div, toolbox) {
         window.canvas = canvas
     }
 
+    var createRecorder = function () {
+        recorder = new Animapp.Recorder(canvas)
+    }
+
     var registerEvents = function () {
         resizeEvents()
         toolboxEvents()
         keyboardEvents()
         refreshLoop()
+        recorderEvents()
+
+        // debug
+        canvas.on('mouse:down', function (e) {
+            obj = e.target
+        })
+    }
+
+    var recorderEvents = function () {
+        $('#animate').on('change', function () {
+            if ($(this).is(':checked')) {
+                return recorder.record()
+            }
+
+            recorder.pause()
+        })
+
+        $('#looping').on('change', function(){
+            if($(this).is(':checked')){
+                return recorder.looping = true
+            }
+
+            recorder.looping = false
+        })
     }
 
     var refreshLoop = function () {
@@ -73,14 +108,14 @@ Animapp.Editor = function (div, toolbox) {
 
             // Desativa ferramenta atual se houver alguma
             if (currentTool !== null) {
-                tools[currentTool].deactive()
+                tools[currentTool].deactivate()
             }
 
             // Muda para a ferramenta escolhida
             currentTool = $(this).data('tool')
 
             // Ativa a nova ferramenta
-            tools[currentTool].active()
+            tools[currentTool].activate()
 
             // Deseleciona todas as ferramentas
             $('[data-tool]').removeClass('selected')
@@ -92,20 +127,21 @@ Animapp.Editor = function (div, toolbox) {
 
     var setupTools = function () {
         tools = {
-            pencil: new Animapp.Tool.Pencil(canvas, $('[data-tool="pencil"]')),
-            color:  new Animapp.Tool.Color(canvas, $('[data-tool="color"]')),
-            line:   new Animapp.Tool.Line(canvas, $('[data-tool="line"]')),
-            rect:   new Animapp.Tool.Rect(canvas, $('[data-tool="rect"]')),
-            circle: new Animapp.Tool.Circle(canvas, $('[data-tool="circle"]')),
-            file:   new Animapp.Tool.File(canvas, $('[data-tool="file"]')),
-            eraser: new Animapp.Tool.Eraser(canvas, $('[data-tool="eraser"]')),
-            move:   new Animapp.Tool.Move(canvas, $('[data-tool="move"]')),
-            bucket: new Animapp.Tool.Bucket(canvas, $('[data-tool="bucket"]'))
+            pencil:  new Animapp.Tool.Pencil(canvas, $('[data-tool="pencil"]')),
+            color:   new Animapp.Tool.Color(canvas, $('[data-tool="color"]')),
+            line:    new Animapp.Tool.Line(canvas, $('[data-tool="line"]')),
+            rect:    new Animapp.Tool.Rect(canvas, $('[data-tool="rect"]')),
+            ellipse: new Animapp.Tool.Ellipse(canvas, $('[data-tool="ellipse"]')),
+            file:    new Animapp.Tool.File(canvas, $('[data-tool="file"]')),
+            eraser:  new Animapp.Tool.Eraser(canvas, $('[data-tool="eraser"]')),
+            move:    new Animapp.Tool.Move(canvas, $('[data-tool="move"]')),
+            bucket:  new Animapp.Tool.Bucket(canvas, $('[data-tool="bucket"]'))
         }
     }
 
     this.initialize = function () {
         createCanvas()
+        createRecorder()
         registerEvents()
         setupTools()
     }

@@ -6,12 +6,12 @@
 Animapp.Tool.Pencil = function (canvas, el) {
     var _self = this
 
-    this.active = function () {
+    this.activate = function () {
         canvas.isDrawingMode = true
         canvas.freeDrawingBrush.color = canvas.color
     }
 
-    this.deactive = function () {
+    this.deactivate = function () {
         canvas.isDrawingMode = false
     }
 

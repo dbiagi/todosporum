@@ -40,11 +40,11 @@ Animapp.Tool.File = function (canvas, el) {
         fileInput.click()
     })
 
-    this.active = function () {
+    this.activate = function () {
         return false
     }
 
-    this.deactive = function () {
+    this.deactivate = function () {
         return false
     }
 

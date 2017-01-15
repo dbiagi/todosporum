@@ -23,7 +23,7 @@
                 <li><a data-tool="eraser" class="icon-borracha tool" title="Borracha"></a></li>
                 <li><a data-tool="line" class="icon-linha tool" title="Linha"></a></li>
                 <li><a data-tool="rect" class="icon-retangulo tool" title="Retângulo"></a></li>
-                <li><a data-tool="circle" class="icon-elipse tool" title="Elipse"></a></li>
+                <li><a data-tool="ellipse" class="icon-elipse tool" title="Elipse"></a></li>
                 <li><a data-tool="move" class="icon-mover tool" title="Mover"></a></li>
                 {#<li><a data-tool="resize" class="icon-redimensionar tool" title="Redimensionar"></a></li>#}
                 <li><a data-tool="bucket" class="icon-balde tool" title="Lata de tinta"></a></li>
@@ -45,10 +45,8 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
+                    <input type="checkbox" id="looping" value="1" class="hidden">
                     <label for="looping"><i class="fa fa-undo fa-2x"></i>&nbsp;<span>Looping</span></label>
-                </div>
-                <div class="col-md-4">
-                    <input type="checkbox" id="looping" value="1">
                 </div>
             </div>
             <div class="row">
