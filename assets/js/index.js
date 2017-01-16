@@ -28,4 +28,6 @@ $(document).ready(function () {
         prevEffect: 'none',
         nextEffect: 'none'
     });
+
+    $('[data-toogle="tooltip"]').tooltip()
 });

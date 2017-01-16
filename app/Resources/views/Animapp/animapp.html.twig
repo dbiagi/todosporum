@@ -19,22 +19,27 @@
     <div class="containerApp">
         <div id="ferramentas">
             <ul>
-                <li><a data-tool="pencil" class="icon-pincel tool" title="Pincel"></a></li>
-                <li><a data-tool="eraser" class="icon-borracha tool" title="Borracha"></a></li>
-                <li><a data-tool="line" class="icon-linha tool" title="Linha"></a></li>
-                <li><a data-tool="rect" class="icon-retangulo tool" title="Retângulo"></a></li>
-                <li><a data-tool="ellipse" class="icon-elipse tool" title="Elipse"></a></li>
-                <li><a data-tool="move" class="icon-mover tool" title="Mover"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="pencil" class="icon-pincel tool" title="Pincel"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="eraser" class="icon-borracha tool" title="Borracha"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="line" class="icon-linha tool" title="Linha"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="rect" class="icon-retangulo tool" title="Retângulo"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="ellipse" class="icon-elipse tool" title="Elipse"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="move" class="icon-mover tool" title="Mover"></a></li>
                 {#<li><a data-tool="resize" class="icon-redimensionar tool" title="Redimensionar"></a></li>#}
-                <li><a data-tool="bucket" class="icon-balde tool" title="Lata de tinta"></a></li>
-                <li><a data-tool="file" class="icon-anexar tool" title="Adicionar imagem"></a></li>
-                <li><a data-tool="color" class="icon-cor tool" title="Cor"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="bucket" class="icon-balde tool" title="Lata de tinta"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="file" class="icon-anexar tool" title="Adicionar imagem"></a></li>
+                <li><a data-toggle="tooltip" data-placement="right" data-tool="color" class="icon-cor tool" title="Cor"></a></li>
             </ul>
         </div>
         <div id="acoes">
             <div class="row">
+                <div class="col-md-12">
+                    <h2>Propriedades do Objeto</h2>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
-                    <label for="time-start"><i class="fa fa-clock-o fa-2x"></i>&nbsp;<span>Tempo</span></label>
+                    <label for="time-start" title="Tempo de início e fim da animação" data-toggle="tooltip" data-placement="auto"><i class="fa fa-clock-o fa-2x"></i>&nbsp;<span>Tempo</span></label>
                 </div>
                 <div class="col-md-4">
                     <input id="time-start" class="form-control" type="number" placeholder="Início">
@@ -44,18 +49,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <input type="checkbox" id="looping" value="1" class="hidden">
-                    <label for="looping"><i class="fa fa-undo fa-2x"></i>&nbsp;<span>Looping</span></label>
+                    <label for="looping" title="Deixar a animação do objeto selecionado em looping" data-toggle="tooltip" data-placement="auto"><i class="fa fa-undo fa-2x"></i>&nbsp;<span>Looping</span></label>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <input type="checkbox" id="animate" value="1" class="hidden">
-                    <label for="animate" class="record"><i class="fa fa-stop-circle fa-2x"></i>&nbsp;<span>Animar</span></label>
+                    <label for="animate" title="Iniciar gravação do objeto selecionado" data-toggle="tooltip" data-placement="auto" class="record"><i class="fa fa-stop-circle fa-2x"></i>&nbsp;<span>Animar</span></label>
                 </div>
-                <div class="col-md-4">
-
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="checkbox" id="fade" value="1" class="hidden">
+                    <label for="fade" title="Esconder objeto após completar animação" data-toggle="tooltip" data-placement="auto"><i class="fa fa-eye fa-2x"></i>&nbsp;<span>Esconder ao finalizar</span></label>
                 </div>
             </div>
         </div>
