@@ -30,12 +30,16 @@ Animapp.Recorder = function (canvas) {
         }
     })
 
-    var registerEvents = function () {
+    var objMove = function(e){
+        console.log(e)
+    }
 
+    var registerEvents = function () {
+        canvas.on('object:moving', objMove)
     }
 
     var unregisterEvents = function () {
-
+        canvas.off('object:moving', objMove)
     }
 
     this.record = function () {
