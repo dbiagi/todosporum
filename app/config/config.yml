@@ -133,10 +133,6 @@ monolog:
             type: service
             id: lexik_monolog_browser.handler.doctrine_dbal
             
-#        database:
-#            type:         service
-#            id:           lexik_monolog_browser.handler.doctrine_dbal
-            
 #        app:
 #            type:         fingers_crossed
 #            action_level: error

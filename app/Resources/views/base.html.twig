@@ -25,7 +25,11 @@
     </head>
     <body>
         {% block body %} {% endblock %}
-
+        <div class="row">
+            <div class="col-md-3">
+                {% include 'includes/switcher.html.twig' %}
+            </div>
+        </div>
         {% block javascripts %}
             <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
             <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>

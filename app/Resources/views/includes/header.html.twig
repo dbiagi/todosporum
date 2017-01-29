@@ -1,7 +1,8 @@
 <header>
     <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a></h1>
     <ul class="menu">
-        <li><a href="{{ path('main_projeto') }}">Conheça o projeto</a>
+        <li>
+            <a href="{{ path('main_projeto') }}">Conheça o projeto</a>
             <ul class="submenu">
                 <li><a href="{{ path('main_projeto') }}#conceito">Conceito</a></li>
                 <li><a href="{{ path('main_projeto') }}#referencias">Referências</a></li>
@@ -12,7 +13,7 @@
         </li>
         <li><a href="{{ path('animation_list') }}">Galeria</a></li>
         <li><a href="{{ path('main_contato') }}">Contato</a></li>
-        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% if is_granted('ROLE_USER') %}
             <li><a id="btnapp" class="bg_vd" href="{{ path('main_animapp') }}">Criar Novo</a></li>
             <li><a class="bg_az" href="{{ path('fos_user_security_logout') }}">Sair</a></li>
             <li class="am" id="user">Olá {{ app.user.firstname|capitalize }}!</li>

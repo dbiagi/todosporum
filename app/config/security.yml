@@ -10,7 +10,7 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH, ROLE_USER]
     firewalls:
         main:
-
+            switch_user: { role: ROLE_ALLOWED_TO_SWITCH, parameter: _switch_to }
             http_basic: ~
             pattern: ^/
             form_login:
@@ -27,3 +27,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/animapp, role: ROLE_USER }
+        - { path: ^/log, role: ROLE_SUPER_ADMIN }
