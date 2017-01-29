@@ -1,0 +1,16 @@
+{% if is_granted('ROLE_ALLOWED_TO_SWITCH') %}
+    <div class="row">
+        <form action="{{ path('main_home') }}">
+            <div class="input-group">
+                <input type="text" name="_switch_to" class="form-control">
+                <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">Personificar</button>
+                    </span>
+            </div>
+        </form>
+    </div>
+{% elseif is_granted('ROLE_PREVIOUS_ADMIN') %}
+    <div class="row">
+        <a href="{{ path('main_home', {_switch_to: '_exit' }) }}" class="btn">Despersonificar</a>
+    </div>
+{% endif %}
