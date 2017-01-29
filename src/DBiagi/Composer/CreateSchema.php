@@ -18,7 +18,6 @@ class CreateSchema extends ScriptHandler {
      * @param Event $event
      */
     public static function create(Event $event) {
-        static::dropDatabase($event);
         static::createDatabase($event);
         static::updateSchema($event);
         static::loadFixtures($event);
