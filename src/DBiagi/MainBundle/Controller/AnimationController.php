@@ -18,7 +18,7 @@ class AnimationController extends BaseController {
     public function listAction(Request $request) {
         $currentpage = $request->query->getInt('page', 1);
 
-        $response = $this->render('animation/list.html.twig',[
+        $response = $this->render('Animation/list.html.twig', [
                 'animations' => $this->getAnimations($currentpage),
             ]
         );
@@ -41,12 +41,9 @@ class AnimationController extends BaseController {
      * @return Response
      */
     public function widgetAction($currentPage = 1) {
-        $response = $this->render(
-            'animation/widget.html.twig',
-            [
-                'animations' => $this->getAnimations($currentPage),
-            ]
-        );
+        $response = $this->render('Animation/widget.html.twig', [
+            'animations' => $this->getAnimations($currentPage),
+        ]);
 
         $response->setSharedMaxAge(15 * 60);
 
