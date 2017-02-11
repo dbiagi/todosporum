@@ -5,6 +5,7 @@ namespace DBiagi\MainBundle\EventSubscriber;
 use FOS\UserBundle\Event\UserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Event listener to set a default user name on registration.

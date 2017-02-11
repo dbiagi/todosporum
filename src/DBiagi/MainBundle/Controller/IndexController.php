@@ -14,6 +14,8 @@ class IndexController extends Controller {
 	 * @return Response
 	 */
 	public function indexAction(){
+
+	    throw new \Exception('Exceção aleatória');
 		return $this->render('Pages/home.html.twig');
 	}
 

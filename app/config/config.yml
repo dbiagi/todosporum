@@ -96,50 +96,27 @@ fos_user:
 monolog:
     channels: [app, user, editor]
     handlers:
-        debug_group:
-            type: group
-            channels:   [app, user, editor]
-            members: [debug_file, debug_chrome]
-        debug_file:
+        main:
             type: stream
-            path: "%kernel.logs_dir%/debug.log"
-            level: debug
-        debug_chrome:
-            type: chromephp
-            level: debug
-
-        warning_group:
-            type: group
-            channels: [app, user, editor]
-            members: [warning_db]
-        warning_db:
-            type: fingers_crossed
+            path: "%kernel.logs_dir%/main.%kernel.environment%.log"
+            channels: [!translation, !event]
             level: warning
-            handler: database
 
-        critical_group:
-            type:       group
-            members:    [critical_db, critical_file]
-        critical_db:
+        error_db:
             type: fingers_crossed
             action_level: error
-            handler: critical_file
-        critical_file:
+            channels: [app]
+            handler: database
+
+        error_file:
             type: stream
-            path: "%kernel.logs_dir%/critical.log"
+            path: "%kernel.logs_dir%/error.log"
             level: error
 
         database:
             type: service
             id: lexik_monolog_browser.handler.doctrine_dbal
-            
-#        app:
-#            type:         fingers_crossed
-#            action_level: error
-#            channels:     [app]
-#            handler:      lexik_monolog_browser
-        
-        
+
 lexik_monolog_browser:
     doctrine:
         connection_name: monolog
