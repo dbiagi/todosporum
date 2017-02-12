@@ -76,7 +76,6 @@ Animapp.Tool.Rect = function (canvas, el) {
 
     var mouseUp = function () {
         currentRect.set({
-            fill: canvas.color,
             strokeDashArray: null
         })
         currentRect.setCoords()

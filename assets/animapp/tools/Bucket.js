@@ -1,5 +1,5 @@
 /**
- *
+ * Bucket.
  * @param {fabric.Canvas} canvas
  * @constructor
  */
@@ -8,8 +8,11 @@ Animapp.Tool.Bucket = function (canvas, el) {
 
     var mouseDown = function(e){
         if(e.target !== null){
-            e.target.setColor(canvas.color)
-            e.target.setStroke(canvas.color)
+            e.target.set({
+                color: canvas.color,
+                stroke: canvas.color,
+                fill: canvas.color
+            })
         }
     }
 

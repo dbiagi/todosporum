@@ -90,10 +90,21 @@ Animapp.Editor = function (div, toolbox) {
 
     var keyboardEvents = function () {
         $(window).on('keydown', function (e) {
-            var obj = canvas.getActiveObject()
+            var obj = canvas.getActiveObject(),
+                group = canvas.getActiveGroup()
 
-            if (e.which === 46 && obj !== null) {
-                obj.remove()
+            if (46 == e.which) {
+                if(null !== obj){
+                    obj.remove()
+                }
+
+                if(null !== group){
+                    group.getObjects().forEach(function(obj){
+                        obj.remove()
+                    })
+
+                    canvas.setActiveGroup(null)
+                }
             }
         })
     }

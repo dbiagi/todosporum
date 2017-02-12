@@ -62,7 +62,6 @@ Animapp.Tool.Ellipse = function (canvas, el) {
 
     var mouseUp = function () {
         currentEllipse.set({
-            fill: canvas.color,
             strokeDashArray: null
         })
         currentEllipse.setCoords()
