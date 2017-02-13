@@ -30,4 +30,12 @@ $(document).ready(function () {
     });
 
     $('[data-toogle="tooltip"]').tooltip()
+
+    $('#galery-modal').on('show.bs.modal', function (e) {
+        var bt = e.relatedTarget
+
+        $(this).append($('<img>', {
+            src: bt.data('thumbnail')
+        }))
+    })
 });

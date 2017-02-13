@@ -2,7 +2,7 @@
     <ul id="progress" class="galeria clear">
         {% for part in parts %}
             <li>
-                {#<a data-fancybox-type="iframe" href="#"class="videos btn-mini bg_am">pré-visualizar</a>#}
+                <a data-toogle="modal" data-target="galery-modal" class="videos btn-mini bg_am" data-thumbnail="{{ part.thumbnail }}">Visualizar</a>
                 <img src="{{ part.thumbnail }}" alt="">
                 <a href="{{ path('edit_animation', { id: part.id }) }}" class="btn-mini bg_az">Continuar esta!</a>
             </li>
@@ -10,5 +10,9 @@
     </ul>
     <div class="container">
         {{ knp_pagination_render(parts) }}
+    </div>
+
+    <div id="galery-modal" class="modal fade" role="dialog">
+
     </div>
 {% endblock %}
