@@ -41,8 +41,12 @@ class AnimationController extends BaseController {
      * @return Response
      */
     public function widgetAction($currentPage = 1) {
+        $repo = $this->getDoctrine()->getManager()->getRepository('DBiagiMainBundle:AnimationPart');
+
+        $parts = $repo->findBy([], ['updatedAt' => 'DESC']);
+
         $response = $this->render('Animation/widget.html.twig', [
-            'animations' => $this->getAnimations($currentPage),
+            'parts' => $this->getPaginator()->paginate($parts, $currentPage, $this->paginationLimit),
         ]);
 
         $response->setSharedMaxAge(15 * 60);

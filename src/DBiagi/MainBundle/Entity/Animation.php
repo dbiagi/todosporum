@@ -2,6 +2,7 @@
 
 namespace DBiagi\MainBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="DBiagi\MainBundle\Repository\AnimationRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Animation
+class Animation extends DatableEntity
 {
     /**
      * @var int
@@ -30,25 +31,22 @@ class Animation
     private $title;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updatedAt", type="datetime")
-     */
-    private $updatedAt;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User")
      * @var User
+     *
+     * * @ORM\ManyToOne(targetEntity="User")
      */
     private $author;
-    
+
+    /**
+     * @var AnimationPart[]
+     *
+     * @ORM\OneToMany(targetEntity="DBiagi\MainBundle\Entity\AnimationPart", mappedBy="animation")
+     */
+    private $parts;
+
+    function __construct() {
+        $this->parts = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -85,54 +83,6 @@ class Animation
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Animation
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Animation
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-    
-    /**
      * Get author.
      * @return User
      */
@@ -149,24 +99,6 @@ class Animation
         $this->author = $author;
         
         return $this;
-    }
-    
-    /**
-     * @ORM\PrePersist
-     */
-    public function onPrePersist(){
-        $this->createdAt = new \DateTime();
-        
-        if($this->getUpdatedAt() === null){
-            $this->setUpdatedAt(new \DateTime());
-        }
-    }
-    
-    /**
-     * @ORM\PreUpdate
-     */
-    public function preUpdate(){
-        $this->updatedAt = new \DateTime();
     }
 }
 

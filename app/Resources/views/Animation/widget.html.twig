@@ -1,14 +1,14 @@
 {% block animation_widget %} 
     <ul id="progress" class="galeria clear">
-        {% for animation in animations %}
+        {% for part in parts %}
             <li>
-                <a data-fancybox-type="iframe" href="#"class="videos btn-mini bg_am">pré-visualizar</a>
-                <img src="{{ asset('img/video.jpg') }}" alt="">
-                <a href="{{ path('main_animapp') }}" class="btn-mini bg_az">Continuar esta!</a>
+                {#<a data-fancybox-type="iframe" href="#"class="videos btn-mini bg_am">pré-visualizar</a>#}
+                <img src="{{ part.thumbnail }}" alt="">
+                <a href="{{ path('edit_animation', { id: part.id }) }}" class="btn-mini bg_az">Continuar esta!</a>
             </li>
         {% endfor %}
     </ul>
     <div class="container">
-        {{ knp_pagination_render(animations) }}
+        {{ knp_pagination_render(parts) }}
     </div>
 {% endblock %}

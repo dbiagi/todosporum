@@ -47,7 +47,10 @@ if (empty($_SESSION['usuario'])) {
             <ul>
                 <li><a class="icon-desfazer" title="Desfazer" onclick="alertaFerramenta('Desfazer')"></a></li>
                 <li><a class="icon-refazer" title="Refazer" onclick="alertaFerramenta('Refazer')"></a></li>
-                <li><a class="icon-ok" title="Finalizar" onclick="alertaFerramenta('Finalizar Animação')"></a></li>
+                <li>
+                    <form action=""></form>
+                    <a class="icon-ok" title="Finalizar" onclick="alertaFerramenta('Finalizar Animação')"></a>
+                </li>
                 <li><a href="galeria-animapp.php" class="icon-fechar" title="Sair do App"></a></li>
             </ul>    
         </div>

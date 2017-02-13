@@ -36,6 +36,12 @@ Animapp.Editor = function (div, toolbox) {
         canvas.freeDrawingBrush.color = canvas.color
         canvas.freeDrawingBrush.width = 5
 
+        var content = $(div).data('content')
+
+        if(content){
+            canvas.loadFromJSON(content)
+        }
+
         // Deixa o objeto canvas disponível globalmente para fins de debug somente
         window.canvas = canvas
     }
@@ -50,6 +56,7 @@ Animapp.Editor = function (div, toolbox) {
         keyboardEvents()
         refreshLoop()
         recorderEvents()
+        formEvents()
 
         // debug
         canvas.on('mouse:down', function (e) {
@@ -99,11 +106,11 @@ Animapp.Editor = function (div, toolbox) {
                 }
 
                 if(null !== group){
+
                     group.getObjects().forEach(function(obj){
                         obj.remove()
                     })
-
-                    canvas.setActiveGroup(null)
+                    group.removeWithUpdate()
                 }
             }
         })
@@ -148,6 +155,24 @@ Animapp.Editor = function (div, toolbox) {
             move:    new Animapp.Tool.Move(canvas, $('[data-tool="move"]')),
             bucket:  new Animapp.Tool.Bucket(canvas, $('[data-tool="bucket"]'))
         }
+    }
+
+    var formEvents = function () {
+        $('#save-form').submit(function (e) {
+            var $form = $(this)
+
+            $form.append($('<input>', {
+                type: 'hidden',
+                name: 'content',
+                value: JSON.stringify(canvas)
+            }))
+
+            $form.append($('<input>', {
+                type: 'hidden',
+                name: 'thumbnail',
+                value: canvas.toDataURL()
+            }))
+        })
     }
 
     this.initialize = function () {

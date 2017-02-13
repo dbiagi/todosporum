@@ -1,6 +1,10 @@
 body {
     margin-top: 0;
 }
+button.icon-ok{
+    background: transparent;
+    border: none;
+}
 
 #timebar {
     height: 38px;

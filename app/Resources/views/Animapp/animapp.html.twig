@@ -73,11 +73,15 @@
                 <ul>
                     <li><a class="icon-desfazer" title="Desfazer"></a></li>
                     <li><a class="icon-refazer" title="Refazer"></a></li>
-                    <li><a class="icon-ok" title="Finalizar"></a></li>
-                    <li><a href="{{ path('main_animapp') }}" class="icon-fechar" title="Sair do App"></a></li>
+                    <li>
+                        <form id="save-form" action="{{ path('save_animation') }}" method="post">
+                            <button type="submit" class="icon-ok" title="Finalizar"></button>
+                        </form>
+                    </li>
+                    <li><a href="{{ path('new_animation') }}" class="icon-fechar" title="Sair do App"></a></li>
                 </ul>
             </div>
-            <div id="animapp"></div>
+            <div id="animapp" data-content="{{ part.content }}"></div>
         </div>
         <div id="timeline">
             <div class="botoes">
