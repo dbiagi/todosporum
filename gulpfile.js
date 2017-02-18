@@ -8,10 +8,9 @@ gulp.task('concat', ['concat:default', 'concat:animapp'])
 
 gulp.task('concat:default', function () {
     return gulp.src(src)
-        .pipe($.sourcemaps.init())
+
         .pipe($.concat('build.min.js'))
-        .pipe($.uglify())
-        .pipe($.sourcemaps.write('/'))
+
         .pipe(gulp.dest('web/js'))
 })
 

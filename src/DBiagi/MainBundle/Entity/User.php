@@ -91,6 +91,8 @@ class User extends BaseUser {
 	    return $this->getEmail();
     }
 
-
+    public function __toString() {
+        return sprintf('%s %s', $this->firstName, $this->lastName);
+    }
 
 }

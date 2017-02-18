@@ -24,18 +24,18 @@ $(document).ready(function () {
         }
     });
     $(".paudefitas").fancybox();
-    $(".videos").fancybox({
-        prevEffect: 'none',
-        nextEffect: 'none'
-    });
+
 
     $('[data-toogle="tooltip"]').tooltip()
 
-    $('#galery-modal').on('show.bs.modal', function (e) {
-        var bt = e.relatedTarget
+    $('#part-modal').on('shown.bs.modal', function (e) {
+        var $bt = $(e.relatedTarget),
+            $modal = $($bt.data('target'))
 
-        $(this).append($('<img>', {
-            src: bt.data('thumbnail')
-        }))
+        var img = new Image()
+        img.src = $bt.data('thumbnail')
+        $modal.find('.modal-body').html('').append(img)
+
+        $modal.find('#edit').attr('href', $bt.data('url'))
     })
 });
