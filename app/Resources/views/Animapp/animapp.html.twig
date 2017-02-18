@@ -81,7 +81,7 @@
                     <li><a href="{{ path('new_animation') }}" class="icon-fechar" title="Sair do App"></a></li>
                 </ul>
             </div>
-            <div id="animapp" data-content="{{ part.content }}"></div>
+            <div id="animapp" data-content="{{ part.content|default('{}') }}"></div>
         </div>
         <div id="timeline">
             <div class="botoes">
