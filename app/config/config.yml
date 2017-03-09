@@ -18,7 +18,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
@@ -102,9 +102,21 @@ monolog:
             channels: [!translation, !event]
             level: warning
 
-        error_db:
+        info_db:
             type: fingers_crossed
-            action_level: error
+            action_level: debug
+            channels: [app]
+            handler: database
+
+#        error_db:
+#            type: fingers_crossed
+#            action_level: error
+#            channels: [app]
+#            handler: database
+
+        critical_db:
+            type: fingers_crossed
+            action_level: critical
             channels: [app]
             handler: database
 
@@ -121,6 +133,7 @@ lexik_monolog_browser:
     doctrine:
         connection_name: monolog
         table_name: syslog
+    date_format: dd/MM/yyyy
         
 knp_paginator:
     template: 

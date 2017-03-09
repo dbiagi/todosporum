@@ -27,8 +27,9 @@ Animapp.Tool.File = function (canvas, el) {
                 top:  50,
                 width: 50,
                 height: 50,
-                selectable: false
+                selectable: false,
             })
+
 
             canvas.add(fbImage)
         }

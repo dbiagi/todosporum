@@ -35,7 +35,7 @@ class User extends BaseUser {
      * @var string
      */
     private $firstName;
-    
+
     /**
      * @ORM\Column(type="string", length=150, nullable=true)
      * @Assert\NotBlank()
@@ -51,6 +51,7 @@ class User extends BaseUser {
 
     /**
      * Get first name.
+     *
      * @return string
      */
     public function getFirstName() {
@@ -59,40 +60,43 @@ class User extends BaseUser {
 
     /**
      * Set first name.
+     *
      * @param string $name
      * @return \DBiagi\MainBundle\Entity\User
      */
     public function setFirstName($name) {
         $this->firstName = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * Get last name.
+     *
      * @return string
      */
-    public function getLastName(){
+    public function getLastName() {
         return $this->lastName;
     }
-    
+
     /**
      * Set last name.
+     *
      * @param string $name
      * @return \DBiagi\MainBundle\Entity\User
      */
-    public function setLastName($name){
+    public function setLastName($name) {
         $this->lastName = $name;
-        
+
         return $this;
     }
 
     public function getUsername() {
-	    return $this->getEmail();
+        return $this->getEmail();
     }
 
     public function __toString() {
-        return sprintf('%s %s', $this->firstName, $this->lastName);
+        return sprintf('%s (%d)', $this->username, $this->id);
     }
 
 }

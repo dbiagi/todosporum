@@ -7,4 +7,4 @@ fos_user:
     
 lexik_monolog_browser:
     resource: "@LexikMonologBrowserBundle/Resources/config/routing.xml"
-    prefix:   /log
+    prefix:   /logs

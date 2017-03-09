@@ -11,6 +11,7 @@ namespace DBiagi\MainBundle\EventSubscriber;
 use Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 class ExceptionSubscriber implements EventSubscriberInterface {
@@ -32,6 +33,10 @@ class ExceptionSubscriber implements EventSubscriberInterface {
     }
 
     public function onException(GetResponseForExceptionEvent $event) {
+        if($event->getException() instanceof NotFoundHttpException){
+            return;
+        }
+
         $exc = $event->getException();
         $msg = sprintf('%s in %s line %d', $exc->getMessage(), $exc->getFile(), $exc->getLine());
 
