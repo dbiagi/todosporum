@@ -13,18 +13,19 @@ security:
             switch_user: { role: ROLE_ALLOWED_TO_SWITCH, parameter: _switch_to }
             http_basic: ~
             pattern: ^/
-            form_login:
-                provider: fos_userbundle
             logout:       true
             anonymous:    true
+            form_login:
+                login_path: /login
             remember_me:
                 secret: "%secret%"
                 lifetime: 604800 # 1 week in seconds
                 path:     /
+            guard:
+                authenticators:
+                    - main.guard.authenticator
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/animapp, role: ROLE_USER }
         - { path: ^/log, role: ROLE_SUPER_ADMIN }

@@ -38,7 +38,6 @@ class User extends BaseUser {
 
     /**
      * @ORM\Column(type="string", length=150, nullable=true)
-     * @Assert\NotBlank()
      * @Assert\Length(
      *      min = 3,
      *      max = 50,

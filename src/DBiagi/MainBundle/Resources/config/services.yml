@@ -18,6 +18,10 @@ services:
 
     main.exception_subscriber:
         class: DBiagi\MainBundle\EventSubscriber\ExceptionSubscriber
-        arguments: ["@logger"]
+        arguments: ['@logger']
         tags:
             - { name: kernel.event_subscriber }
+
+    main.guard.authenticator:
+        class: DBiagi\MainBundle\Security\CustomAuthenticator
+        arguments: ['@router', '@security.password_encoder', '@security.csrf.token_manager']
