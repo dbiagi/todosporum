@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+    php:
+        build: docker/php/
+        ports:
+          - 8080:80
+        volumes:
+            - .:/var/www/html
+            - ./docker/php/conf/php.ini:/usr/local/etc/php/conf.d/php.ini
+            - ./docker/php/conf/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+            - ./docker/php/conf/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+        environment:
+            PHP_IDE_CONFIG: "serverName=docker"
+            SYMFONY_PHPUNIT_VERSION: "8.2"
+        networks:
+            - mariadb_network
+            - redis_network
+
+networks:
+    mariadb_network:
+        external: true
+    redis_network:
+        external: true

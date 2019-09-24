@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/fonts/icomoon.eot?nbljr8');
+  src:  url('/fonts/icomoon.eot?nbljr8#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?nbljr8') format('truetype'),
+    url('/fonts/icomoon.woff?nbljr8') format('woff'),
+    url('/fonts/icomoon.svg?nbljr8#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-anexar:before {
+  content: "\e900";
+}
+.icon-balde:before {
+  content: "\e901";
+}
+.icon-borracha:before {
+  content: "\e902";
+}
+.icon-cor:before {
+  content: "\e903";
+}
+.icon-desfazer:before {
+  content: "\e904";
+}
+.icon-elipse:before {
+  content: "\e905";
+}
+.icon-fechar:before {
+  content: "\e906";
+}
+.icon-linha:before {
+  content: "\e907";
+}
+.icon-mover:before {
+  content: "\e908";
+}
+.icon-ok:before {
+  content: "\e909";
+}
+.icon-pause:before {
+  content: "\e90a";
+}
+.icon-pincel:before {
+  content: "\e90b";
+}
+.icon-play:before {
+  content: "\e90c";
+}
+.icon-redimensionar:before {
+  content: "\e90d";
+}
+.icon-refazer:before {
+  content: "\e90e";
+}
+.icon-retangulo:before {
+  content: "\e90f";
+}
+.icon-rever:before {
+  content: "\e910";
+}
+.icon-tempo:before {
+  content: "\e94e";
+}
+

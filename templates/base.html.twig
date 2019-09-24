@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Todos por um{% endblock %}</title>
+        {% block favicon %}
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+
+        {% block meta_tags %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endblock %}
+
+        {% block jquery %} 
+            <script src="{{ asset('libs/jquery/dist/jquery.min.js') }}"></script>
+        {% endblock %}
+        
+        {% block stylesheets %}
+            <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+            <link href="{{ asset('libs/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href="/css/jquery.fancybox.css" rel="stylesheet" type="text/css">
+            <link href="/css/style.css" rel="stylesheet" type="text/css">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %} {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.fancybox.js') }}"></script>
+            <script src="{{ asset('libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('/js/build.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

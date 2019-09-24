@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <section class="banner-home">
+
+        <img src="{{ asset('/img/ilustra.png') }}">
+
+    </section>
+
+    <section class="container center">
+
+        <h2 class="az">Como funciona?</h2>
+
+        <div class="videoWrapper">
+            <iframe src="https://www.youtube.com/embed/pCUqSbArkvc" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+    </section>
+
+    <section class="container center">
+
+        <h2 class="rs">Veja o que já foi feito aqui</h2>
+
+        {% block animation_list %} 
+            {{ render_esi(controller('DBiagiMainBundle:Animation:Widget', {
+                page: app.request.get('page')|default(1)
+            })) }}
+        {% endblock %}
+        <a class="btn-custom bg_az" href="{{ path('animation_list') }}">VER GALERIA COMPLETA</a>
+
+    </section>
+{% endblock %}

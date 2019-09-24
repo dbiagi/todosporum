@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block header %} 
+        {% include 'includes/header.html.twig' %}
+        <div id="fitarosa"></div>
+        <div id="fitaazul"></div>
+        <div id="fitaverde"></div>
+    {% endblock %}
+
+    <div class="container">
+        {% block flash_messages %}
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ type }}">
+                        {{ message|raw }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endblock %}
+    </div>
+
+    {% block content %} {% endblock %}
+
+    {% block footer %}
+        {% include 'includes/footer.html.twig' %}
+    {% endblock %}
+
+{% endblock %}
+
+

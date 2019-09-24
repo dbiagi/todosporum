@@ -1,0 +1,27 @@
+security:
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH, ROLE_USER]
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+#        main:
+#            switch_user: { role: ROLE_ALLOWED_TO_SWITCH, parameter: _switch_to }
+#            http_basic: ~
+#            pattern: ^/
+#            logout:       true
+#            anonymous:    true
+#            form_login:
+#                login_path: /login
+#            remember_me:
+#                secret: "%env(APP_SECRET)%"
+#                lifetime: 604800 # 1 week in seconds
+#                path:     /
+#            guard:
+#                authenticators:
+#                    - App\Security\CustomAuthenticator
+
+    access_control:
+        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/animapp, role: ROLE_USER }
